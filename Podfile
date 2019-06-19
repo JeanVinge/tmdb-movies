@@ -2,9 +2,8 @@ platform :ios, '11.0'
 use_frameworks!
 
 def rxLibs
-  pod 'Moya/RxSwift'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
   pod 'RxDataSources'
   pod 'NSObject+Rx'
   pod 'RxKeyboard'
@@ -19,7 +18,6 @@ def libs
   rxLibs
   pod 'SnapKit'
   pod 'KeychainSwift'
-  pod 'AlamofireImage'
 end
 
 def all_libs
@@ -30,7 +28,7 @@ end
 
 def lib_tests
   pod 'RxBlocking'
-  pod 'RxTest', "~> 4.4.0"
+  pod 'RxTest'
 end
 
 target 'tmdb-movies' do
@@ -41,33 +39,39 @@ target 'tmdb-movies' do
    end
 end
 
-# target 'Domain' do
-#   libs
-#   target 'DomainTests' do
-#     inherit! :search_paths
-#     lib_tests
-#   end
-# end
-#
-# target 'NetworkPlatform' do
-#   libs
-#   target 'NetworkPlatformTests' do
-#     inherit! :search_paths
-#     lib_tests
-#   end
-# end
-#
-# target 'Utility' do
-#   libs
-#   target 'UtilityTests' do
-#     inherit! :search_paths
-#     lib_tests
-#   end
-# end
-#
-# target 'Resources' do
-#   target 'ResourcesTests' do
-#     inherit! :search_paths
-#     lib_tests
-#   end
-# end
+ target 'Domain' do
+   libs
+   target 'DomainTests' do
+     inherit! :search_paths
+     lib_tests
+   end
+ end
+
+ target 'Networking' do
+   libs
+   target 'NetworkingTests' do
+     inherit! :search_paths
+     lib_tests
+   end
+ end
+
+ target 'Utility' do
+   libs
+   target 'UtilityTests' do
+     inherit! :search_paths
+     lib_tests
+   end
+ end
+
+ target 'Resources' do
+   target 'ResourcesTests' do
+     inherit! :search_paths
+     lib_tests
+   end
+ end
+
+plugin 'cocoapods-keys', {
+  :project => "tmdb-movies",
+  :keys => [
+  "TMDbMoviesAPIKey",
+  ]}
