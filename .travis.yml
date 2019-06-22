@@ -1,5 +1,5 @@
 os: osx
-osx_image: xcode10.1
+osx_image: xcode10.2
 branches:
   only:
     - development
@@ -17,7 +17,6 @@ env:
   matrix:
     - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES" CODE_SIGN="NO"
     - DESTINATION="OS=11.4,name=iPhone X"        SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES"
-    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus" SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES"
 script:
   - set -o pipefail
   - xcodebuild -version
