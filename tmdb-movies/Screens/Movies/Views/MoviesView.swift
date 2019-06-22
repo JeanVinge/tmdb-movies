@@ -48,34 +48,31 @@ class MoviesView: View<MoviesViewModel> {
     func bindInput(_ state: Stateable,
                    refreshControl: UIRefreshControl,
                    viewModel: MoviesViewModel) -> MoviesViewModel.Output {
-        let viewDidLoad = state
-            .viewDidAppear
-            .mapToVoid
-            .asDriver()
 
         let refreshTrigger = refreshControl
             .rx
             .controlEvent(.valueChanged)
             .asDriverJustComplete
 
-        let mergedTrigger = Driver<Void>
-            .merge([viewDidLoad,
-                    refreshTrigger])
-
         let pagination = collectionView
             .rx
             .paginate
             .flatMap { _ -> Driver<Int> in
-                return .just(MoviesRepository.shared.currentPage) }.asDriverJustComplete
+                return .just(MoviesRepository.shared.currentPage) }
+            .asDriverJustComplete
 
         let openDetail = collectionView
             .rx
             .modelSelected(Movie.self)
             .asDriver()
 
+        let triggerMerged = Driver<Void>.merge([state.viewDidLoad,
+                                                loadingView.rx.tryAgain])
+
         return viewModel
             .transform(input: MoviesViewModel
-            .Input(trigger: mergedTrigger,
+                .Input(trigger: triggerMerged,
+                       pullRefresh: refreshTrigger,
                    paginate: pagination,
                    openDetail: openDetail))
     }
@@ -90,8 +87,7 @@ class MoviesView: View<MoviesViewModel> {
             .drive(collectionView.rx
                 .items(dataSource: builder.dataSource))
             .disposed(by: rx.disposeBag)
-        output.movies
-            .map { _ in MoviesRepository.shared.hasNextPage }
+        output.hasNextPage
             .drive(collectionView.rx.shouldEnabledInfiniteScroll)
             .disposed(by: rx.disposeBag)
         output.movies
@@ -101,6 +97,10 @@ class MoviesView: View<MoviesViewModel> {
         output
             .openDetail
             .drive()
+            .disposed(by: rx.disposeBag)
+        output
+            .trackActivity
+            .drive(rx.changeState)
             .disposed(by: rx.disposeBag)
     }
 

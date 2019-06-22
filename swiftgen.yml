@@ -6,7 +6,7 @@ xcassets:
     params:
       publicAccess: true
 strings:
-  inputs: Resources/Localizable/en.lproj/Localizable.strings
+  inputs: Resources/Localizable/en.lproj/localizable.strings
   outputs:
     templateName: structured-swift4
     output: Resources/SwiftGen/Localizable.swift

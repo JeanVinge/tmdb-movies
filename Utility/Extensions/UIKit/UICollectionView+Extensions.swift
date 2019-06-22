@@ -12,16 +12,16 @@ extension UICollectionView {
 
     public func dequeue<T: ContentView>(_ container: T.Type,
                                         at indexPath: IndexPath,
-                                        with object: Any? = nil) -> ContainerCell<T> {
-        return dequeue(reusable: ContainerCell<T>.self,
+                                        with object: Any? = nil) -> CollectionViewCell<T> {
+        return dequeue(reusable: CollectionViewCell<T>.self,
                        at: indexPath,
                        with: object)
     }
 
-    public func dequeue<T: ContentView>(_ container: ContainerCell<T>.Type,
+    public func dequeue<T: ContentView>(_ container: CollectionViewCell<T>.Type,
                                         at indexPath: IndexPath,
-                                        with object: Any? = nil) -> ContainerCell<T> {
-        return dequeue(reusable: ContainerCell<T>.self,
+                                        with object: Any? = nil) -> CollectionViewCell<T> {
+        return dequeue(reusable: CollectionViewCell<T>.self,
                        at: indexPath,
                        with: object)
     }

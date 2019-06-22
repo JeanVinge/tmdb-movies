@@ -98,7 +98,7 @@ final class InfiniteIndicator: GenericView {
     }
 }
 
-extension CollectionView {
+extension UIScrollView {
     func initializeIndicatorView() {
         infiniteScrollIndicatorView = InfiniteIndicator(frame: CGRect(x: 0, y: 0, width: 24, height: 50))
     }

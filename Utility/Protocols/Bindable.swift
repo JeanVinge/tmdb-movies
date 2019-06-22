@@ -14,7 +14,7 @@ public protocol ViewModable {
     init(_ viewModel: ViewModelType)
 }
 
-public typealias ViewTransformable = UIView & ViewModable & BindableView
+public typealias ViewTransformable = GenericView & ViewModable & BindableView
 
 public protocol BindableView {
     var state: Stateable? { get set }

@@ -10,24 +10,43 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: UIViewController {
-    var onEnterForeground: Observable<Notification> {
-        return NotificationCenter.default.rx.notification(UIApplication.willEnterForegroundNotification)
+    var onEnterForeground: Driver<Notification> {
+        return NotificationCenter
+            .default
+            .rx
+            .notification(UIApplication.willEnterForegroundNotification)
+            .asDriverJustComplete
     }
-    var onEnterBackground: Observable<Notification> {
-        return NotificationCenter.default.rx.notification(UIApplication.didEnterBackgroundNotification)
+    var onEnterBackground: Driver<Notification> {
+        return NotificationCenter
+            .default
+            .rx
+            .notification(UIApplication.didEnterBackgroundNotification)
+            .asDriverJustComplete
     }
     public var viewDidLoad: Driver<Void> {
-        return self.sentMessage(#selector(UIViewController.viewDidLoad)).mapToVoid.asDriverJustComplete
+        return ControlEvent(events:
+            methodInvoked(#selector(Base
+            .viewDidLoad))
+            .mapToVoid)
+            .asDriver()
     }
-    public var viewDidAppear: Driver<Bool> {
-        return self.sentMessage(#selector(UIViewController.viewDidAppear(_:))).map { _ in true }.asDriverJustComplete
+    public var viewDidAppear: Driver<Void> {
+        return self
+            .sentMessage(#selector(UIViewController.viewDidAppear(_:)))
+            .mapToVoid
+            .asDriverJustComplete
     }
-    public var viewWillAppear: Driver<Bool> {
-        return self.sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in true }.asDriverJustComplete
+    public var viewWillAppear: Driver<Void> {
+        return self
+            .sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+            .mapToVoid
+            .asDriverJustComplete
     }
-    public var viewWillDisappear: Driver<Bool> {
-        return self.sentMessage(
-            #selector(UIViewController.viewWillDisappear(_:)))
-            .map { _ in false }.asDriverJustComplete
+    public var viewWillDisappear: Driver<Void> {
+        return self
+            .sentMessage(#selector(UIViewController.viewWillDisappear(_:)))
+            .mapToVoid
+            .asDriverJustComplete
     }
 }

@@ -9,3 +9,5 @@
 "general.upcomming-movies" = "Próximos filmes";
 "general.loading" = "Carregando";
 "general.release-date" = "Data de lançamento";
+"general.try-again" = "Tentar novamente";
+"general.could-not-load-information" = "Desculpe nós não conseguimos carregar a lista de filmes.";

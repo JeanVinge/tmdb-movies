@@ -13,12 +13,16 @@ import Foundation
 public enum L10n {
 
   public enum General {
+    /// Sorry we could not load movie list.
+    public static let couldNotLoadInformation = L10n.tr("localizable", "general.could-not-load-information")
     /// Loading
-    public static let loading = L10n.tr("Localizable", "general.loading")
+    public static let loading = L10n.tr("localizable", "general.loading")
     /// Release date
-    public static let releaseDate = L10n.tr("Localizable", "general.release-date")
-    /// Upcomming Movies
-    public static let upcommingMovies = L10n.tr("Localizable", "general.upcomming-movies")
+    public static let releaseDate = L10n.tr("localizable", "general.release-date")
+    /// Try again
+    public static let tryAgain = L10n.tr("localizable", "general.try-again")
+    /// Upcoming Movies
+    public static let upcomingMovies = L10n.tr("localizable", "general.upcoming-movies")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

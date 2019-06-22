@@ -22,7 +22,7 @@ public final class Request {
     }
 
     func request(_ targetType: TargetType) -> Single<Response> {
-        return makeRequest(targetType)
+        return makeRequest(targetType).flatMap { .just(try $0.handleStatusCode()) }
     }
 
     private func makeRequest(_ targetType: TargetType) -> Single<Response> {

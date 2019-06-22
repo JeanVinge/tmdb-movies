@@ -6,6 +6,8 @@
   Copyright © 2019 Jean Vinge. All rights reserved.
 */
 
-"general.upcomming-movies" = "Upcomming Movies";
+"general.upcoming-movies" = "Upcoming Movies";
 "general.loading" = "Loading";
 "general.release-date" = "Release date";
+"general.try-again" = "Try again";
+"general.could-not-load-information" = "Sorry we could not load movie list.";

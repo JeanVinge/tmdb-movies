@@ -1,18 +1,16 @@
 //
-//  ContainerCell.swift
+//  TableViewCell.swift
 //  Utility
 //
-//  Created by jean.vinge on 20/06/19.
+//  Created by jean.vinge on 22/06/19.
 //  Copyright © 2019 Jean Vinge. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-public typealias ContentView = UIView & ContainerCellConvertible
-public typealias ReusableCollectionCell = UICollectionViewCell & Reusable
+public typealias ReusableTableViewCell = UITableViewCell & Reusable
 
-final public class ContainerCell<T: ContentView>: ReusableCollectionCell, ConfigurableView {
+final public class TableViewCell<T: ContentView>: ReusableTableViewCell, ConfigurableView {
 
     lazy var wrappedView = T.init()
 
@@ -21,8 +19,9 @@ final public class ContainerCell<T: ContentView>: ReusableCollectionCell, Config
         wrappedView.prepareForReuse()
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style,
+                   reuseIdentifier: reuseIdentifier)
         initLayout()
     }
 
@@ -36,24 +35,21 @@ final public class ContainerCell<T: ContentView>: ReusableCollectionCell, Config
     }
 
     public func initConstraints() {
-        contentView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalToSuperview()
-        }
         wrappedView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalToSuperview()
         }
 
         switch wrappedView.resize {
         case .height(let height):
-            contentView.snp.makeConstraints { (make) in
+            wrappedView.snp.makeConstraints { (make) in
                 make.height.equalTo(height)
             }
         case .width(let width):
-            contentView.snp.makeConstraints { (make) in
+            wrappedView.snp.makeConstraints { (make) in
                 make.width.equalTo(width)
             }
         case .size(let size):
-            contentView.snp.makeConstraints { (make) in
+            wrappedView.snp.makeConstraints { (make) in
                 make.width.equalTo(size.width)
                 make.height.equalTo(size.height)
             }

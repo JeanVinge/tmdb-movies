@@ -17,6 +17,10 @@ class ReleaseDateView: GenericView {
 
     override func initSubviews() {
         addSubview(titleLabel)
+        layer.cornerRadius = 2
+        layer.masksToBounds = true
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.systemBlue.cgColor
     }
 
     override func initConstraints() {

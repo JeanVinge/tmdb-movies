@@ -12,14 +12,14 @@ public struct ClearTheme: Theme {
     init() {}
     public var navigationBar: NavigationTheme {
         return NavigationTheme(background: .clear,
-                               titleColor: .clear,
-                               tintColor: .black,
+                               titleColor: .white,
+                               tintColor: .white,
                                font: .boldSystemFont(ofSize: 14),
                                prefersLargeTitles: true)
     }
     public var view: ViewTheme {
-        return ViewTheme(backgroundColor: .clear,
+        return ViewTheme(backgroundColor: .kinoGray,
                          tintColor: .systemBlue,
-                         statusBarStyle: .default)
+                         statusBarStyle: .lightContent)
     }
 }

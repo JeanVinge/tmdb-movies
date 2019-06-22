@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 open class ViewController: UIViewController {
 
     // MARK: Var
 
     public var theme: Theme
+    private lazy var state: StateableViewController = {
+        return StateableViewController(self)
+    }()
 
     override open var preferredStatusBarStyle: UIStatusBarStyle {
         return theme.view.statusBarStyle
@@ -31,8 +35,8 @@ open class ViewController: UIViewController {
                    router: router == nil ? ScreenRouter(self) : router)
         view.bindViewModel()
         view.layoutIfNeeded()
-        configureTheme(theme)
-        navigationController?.navigationBar.configure(theme: theme)
+        viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
     }
 
     open override func viewWillAppear(_ animated: Bool) {

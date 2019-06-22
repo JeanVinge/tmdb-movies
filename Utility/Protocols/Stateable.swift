@@ -10,21 +10,21 @@ import RxSwift
 import RxCocoa
 
 public protocol Stateable {
-    var onEnterForeground: Observable<Notification> { get set }
-    var onEnterBackground: Observable<Notification> { get set }
+    var onEnterForeground: Driver<Notification> { get set }
+    var onEnterBackground: Driver<Notification> { get set }
     var viewDidLoad: Driver<Void> { get set }
-    var viewDidAppear: Driver<Bool> { get set }
-    var viewWillAppear: Driver<Bool> { get set }
-    var viewWillDisappear: Driver<Bool> { get set }
+    var viewDidAppear: Driver<Void> { get set }
+    var viewWillAppear: Driver<Void> { get set }
+    var viewWillDisappear: Driver<Void> { get set }
 }
 
 struct StateableViewController: Stateable {
-    var onEnterForeground: Observable<Notification>
-    var onEnterBackground: Observable<Notification>
+    var onEnterForeground: Driver<Notification>
+    var onEnterBackground: Driver<Notification>
     var viewDidLoad: Driver<Void>
-    var viewDidAppear: Driver<Bool>
-    var viewWillAppear: Driver<Bool>
-    var viewWillDisappear: Driver<Bool>
+    var viewDidAppear: Driver<Void>
+    var viewWillAppear: Driver<Void>
+    var viewWillDisappear: Driver<Void>
 
     init(_ viewController: UIViewController) {
         self.onEnterForeground = viewController.rx.onEnterForeground

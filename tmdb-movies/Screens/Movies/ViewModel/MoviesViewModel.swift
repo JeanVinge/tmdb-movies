@@ -21,37 +21,60 @@ struct MoviesViewModel: ViewModel, Transformable {
 
     struct Input {
         var trigger: Driver<Void>
+        var pullRefresh: Driver<Void>
         var paginate: Driver<Int>
         var openDetail: Driver<Movie>
     }
     struct Output {
         var movies: Driver<[Movies]>
         var openDetail: Driver<Void>
+        var trackActivity: Driver<LoadingView.State>
+        var hasNextPage: Driver<Bool>
     }
 
     // MARK: Init
 
     func transform(input: Input) -> Output {
-        let movies = input.trigger
-            .flatMapLatest { self.useCases
-            .movies(1)
-            .asObservable().asDriverJustComplete }
+
+        let trackActivity = ActivityIndicator()
+
+        let firstPage = self.useCases.movies(1)
+
+        let trigger = input
+            .trigger
+            .flatMap { _ in firstPage
+                .asObservable()
+                .trackActivity(trackActivity)
+                .asDriverJustComplete }
+
+        let pull = input
+            .pullRefresh
+            .flatMap { firstPage
+                .asObservable()
+                .asDriverJustComplete }
+
+        let movies = Driver<Movies>.merge([trigger,
+                                           pull])
+
         let newPage = input.paginate
-            .flatMap { self.useCases
-                .movies($0).catchError { error in
-                    print(error)
-                    return .just(Movies())
-                }
+            .flatMapLatest { self.useCases
+                .movies($0)
                 .asObservable().asDriverJustComplete }
+
         let openDetail = input
             .openDetail
-            .flatMap { self.router?
+            .flatMapLatest { self.router?
                 .coordinate(MoviesRouter
                     .openDetail($0)) ?? .just(()) }
+
         let mergedMovies = Driver<Movies>
             .merge([movies,
                     newPage]).map { MoviesRepository.shared.movies([$0]) }
+
         return .init(movies: mergedMovies,
-                     openDetail: openDetail)
+                     openDetail: openDetail,
+                     trackActivity: trackActivity.asDriver(),
+                     hasNextPage: mergedMovies
+                        .map { _ in MoviesRepository.shared.hasNextPage })
     }
 }

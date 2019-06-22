@@ -17,9 +17,12 @@ extension MoviesRouter: Presenter {
     func execute(with router: Router) -> Transition {
         switch self {
         case .openDetail(let movie):
-            return .push(viewController: ViewController(MovieDetailView(MovieDetailViewModel()),
-                                                        router: router,
-                                                        theme: HomeTheme()))
+            let vc = ViewController(MovieDetailView(MovieDetailViewModel(router: router,
+                                                                         movie: movie)),
+                                    router: router,
+                                    theme: ClearTheme())
+            vc.title = " "
+            return .push(viewController: vc)
         }
     }
 }

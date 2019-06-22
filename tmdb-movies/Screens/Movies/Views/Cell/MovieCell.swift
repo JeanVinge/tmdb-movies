@@ -23,7 +23,7 @@ final class MovieCell: GenericView, ContainerCellConvertible {
     })
 
     lazy var titleLabel = UILabel(ViewStyle<UILabel> {
-        $0.font = .systemFont(ofSize: 15, weight: .heavy)
+        $0.font = .systemFont(ofSize: 16, weight: .heavy)
         $0.textColor = .white
         $0.numberOfLines = 0
         $0.textAlignment = .left
@@ -63,19 +63,19 @@ final class MovieCell: GenericView, ContainerCellConvertible {
             make.right.equalToSuperview()
         }
         titleLabel.snp.makeConstraints { (make) in
-//            make.top.equalTo(imageView.snp.bottom).offset(2)
+            make.top.equalTo(imageView.snp.bottom).offset(5)
             make.left.right.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(15)
         }
         releaseDataView.snp.makeConstraints { (make) in
-            make.top.equalTo(imageView.snp.bottom).offset(2)
+            make.right.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview()
         }
     }
 
     func setup(with data: Any) {
         guard let data = data as? Movie else { return }
         titleLabel.text = data.title
-        releaseDataView.titleLabel.text = "\(L10n.General.releaseDate): \(data.releaseFullDate.lowercased())"
+        releaseDataView.titleLabel.text = data.releaseFullDate
         imageView.kf.setImage(with: data.poster, options: [.transition(.fade(1))])
         genreView.titleLabel.text = data.genreDescription
     }

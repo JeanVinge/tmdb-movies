@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class View<VM: ViewModel>: ViewTransformable, ConfigurableView {
+open class View<VM: ViewModel>: ViewTransformable {
 
     // MARK: Var
 
@@ -35,13 +35,18 @@ open class View<VM: ViewModel>: ViewTransformable, ConfigurableView {
         initLayout()
     }
 
+    public required init() {
+        super.init()
+        initLayout()
+    }
+
     public func setup(_ state: Stateable,
                       router: Router?) {
         self.state = state
         self.viewModel?.router = router
     }
 
-    open func initSubviews() {}
-    open func initConstraints() {}
+    open override func initSubviews() {}
+    open override func initConstraints() {}
     open func bindViewModel() {}
 }
