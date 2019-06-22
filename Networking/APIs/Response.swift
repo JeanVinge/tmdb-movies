@@ -6,29 +6,45 @@
 //  Copyright © 2019 Jean Vinge. All rights reserved.
 //
 
-public struct Response {
+public struct Response: CustomDebugStringConvertible, Equatable {
 
-    var data: Data
+    var result: Result<Data, Error>
+    var data: Data {
+        guard let data = try? result.get() else { return Data() }
+        return data
+    }
     var response: HTTPURLResponse
     var task: URLSessionDataTask?
-    var error: Error?
+
+    public var debugDescription: String {
+        return description
+    }
+
+    public var description: String {
+        return "Status Code: \(response.statusCode), Data Length: \(data.count))"
+    }
 
     init(_ data: Data?,
          response: URLResponse?,
          task: URLSessionDataTask?,
          error: Error?) {
-        self.data = data ?? Data()
+        if let error = error {
+            self.result = .failure(error)
+        } else {
+            self.result = .success(data ?? Data())
+        }
         self.response = response as? HTTPURLResponse ?? HTTPURLResponse()
         self.task = task
-        self.error = error
+    }
+
+    public static func == (lhs: Response, rhs: Response) -> Bool {
+        return lhs.task == rhs.task
+            && lhs.response == rhs.response
     }
 }
 
-extension Response {
+public extension Response {
     func handleStatusCode() throws -> Response {
-        if let error = error {
-            throw APIErrors.undefinied(error)
-        }
         switch response.statusCode {
         case 200...299:
             return self
@@ -42,31 +58,98 @@ extension Response {
             throw APIErrors.statusCode(self)
         }
     }
-}
 
-public typealias APIResult<T> = Result<T, Error>
+    func map<D: Decodable>(_ type: D.Type,
+                           atKeyPath keyPath: String? = nil,
+                           using decoder: JSONDecoder = JSONDecoder(),
+                           failsOnEmptyData: Bool = true) throws -> D {
+        let serializeToData: (Any) throws -> Data? = { (jsonObject) in
+            guard JSONSerialization.isValidJSONObject(jsonObject) else {
+                return nil
+            }
+            do {
+                return try JSONSerialization.data(withJSONObject: jsonObject)
+            } catch {
+                throw APIErrors.jsonMapping(self)
+            }
+        }
+        let jsonData: Data
+        keyPathCheck: if let keyPath = keyPath {
+            guard let jsonObject = (
+                try mapJSON(failsOnEmptyData: failsOnEmptyData)
+                    as? NSDictionary)?.value(forKeyPath: keyPath) else {
+                if failsOnEmptyData {
+                    throw APIErrors.jsonMapping(self)
+                } else {
+                    jsonData = data
+                    break keyPathCheck
+                }
+            }
 
-public protocol ResponseConvertable {
-    associatedtype Success
-    var response: Response { get }
-    var convert: Success { get }
-}
-
-public struct JSONConvertable: ResponseConvertable {
-
-    public typealias Success = Result<Any, Error>
-
-    public var response: Response
-
-    public var convert: Result<Any, Error> {
+            if let data = try serializeToData(jsonObject) {
+                jsonData = data
+            } else {
+                let wrappedJsonObject = ["value": jsonObject]
+                let wrappedJsonData: Data
+                if let data = try serializeToData(wrappedJsonObject) {
+                    wrappedJsonData = data
+                } else {
+                    throw APIErrors.jsonMapping(self)
+                }
+                do {
+                    return try decoder.decode(DecodableWrapper<D>.self, from: wrappedJsonData).value
+                } catch let error {
+                    throw APIErrors.objectMapping(error, self)
+                }
+            }
+        } else {
+            jsonData = data
+        }
         do {
-            return .success(try response.handleStatusCode())
+            if jsonData.count < 1 && !failsOnEmptyData {
+                if let emptyJSONObjectData = "{}".data(using: .utf8),
+                    let emptyDecodableValue = try? decoder.decode(D.self,
+                                                                  from: emptyJSONObjectData) {
+                    return emptyDecodableValue
+                } else if let emptyJSONArrayData = "[{}]".data(using: .utf8),
+                    let emptyDecodableValue = try? decoder.decode(D.self,
+                                                                  from: emptyJSONArrayData) {
+                    return emptyDecodableValue
+                }
+            }
+            return try decoder.decode(D.self, from: jsonData)
         } catch let error {
-            return .failure(error)
+            throw APIErrors.objectMapping(error, self)
         }
     }
 
-    init(_ response: Response) {
-        self.response = response
+    func mapJSON(failsOnEmptyData: Bool = true) throws -> Any {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+        } catch {
+            if data.count < 1 && !failsOnEmptyData {
+                return NSNull()
+            }
+            throw APIErrors.jsonMapping(self)
+        }
     }
+
+    func mapString(atKeyPath keyPath: String? = nil) throws -> String {
+        if let keyPath = keyPath {
+            guard let jsonDictionary = try mapJSON() as? NSDictionary,
+                let string = jsonDictionary.value(forKeyPath: keyPath) as? String else {
+                    throw APIErrors.stringMapping(self)
+            }
+            return string
+        } else {
+            guard let string = String(data: data, encoding: .utf8) else {
+                throw APIErrors.stringMapping(self)
+            }
+            return string
+        }
+    }
+}
+
+private struct DecodableWrapper<T: Decodable>: Decodable {
+    let value: T
 }

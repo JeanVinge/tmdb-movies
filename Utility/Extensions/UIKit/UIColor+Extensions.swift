@@ -18,6 +18,9 @@ extension UIColor {
     open class var systemBlue: UIColor {
         return UIColor(rgb: 74, green: 144, blue: 226)
     }
+    open class var kinoGray: UIColor {
+        return UIColor(rgb: 18, green: 18, blue: 23)
+    }
     open class var random: UIColor {
         return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1)
     }

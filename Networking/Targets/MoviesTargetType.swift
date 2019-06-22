@@ -6,18 +6,20 @@
 //  Copyright © 2019 Jean Vinge. All rights reserved.
 //
 
-import RxSwift
 import Keys
 
 public enum MoviesTargetType {
     case movies(page: Int)
+    case genreList
 }
 
 extension MoviesTargetType: TargetType {
     public var path: String {
         switch self {
         case .movies:
-            return "movie/66/similar"
+            return "movie/upcoming"
+        case .genreList:
+            return "genre/movie/list"
         }
     }
     public var method: Method {
@@ -27,7 +29,12 @@ extension MoviesTargetType: TargetType {
         switch self {
         case .movies(let page):
             return .requestParameters(parameters: ["api_key": TmdbMoviesKeys().tMDbMoviesAPIKey,
-                                                   "page": page],
+                                                   "page": page,
+                                                   "language": Locale.preferredLanguages[0]],
+                                      encoding: URLEncoding.default)
+        case .genreList:
+            return .requestParameters(parameters: ["api_key": TmdbMoviesKeys().tMDbMoviesAPIKey,
+                                                   "language": Locale.preferredLanguages[0]],
                                       encoding: URLEncoding.default)
         }
     }

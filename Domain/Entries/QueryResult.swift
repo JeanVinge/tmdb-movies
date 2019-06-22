@@ -12,11 +12,17 @@ public struct QueryResult<T: Codable>: Codable {
 
     enum CodingKeys: String, CodingKey {
         case pages = "total_pages"
-        case result
+        case results
         case page
     }
 
-    var page: Int
-    var result: [T]
-    var pages: Int
+    public var page: Int
+    public var results: [T]
+    public var pages: Int
+
+    public init() {
+        page = 0
+        results = []
+        pages = 0
+    }
 }

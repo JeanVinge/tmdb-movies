@@ -14,7 +14,8 @@ public struct ClearTheme: Theme {
         return NavigationTheme(background: .clear,
                                titleColor: .clear,
                                tintColor: .black,
-                               font: .boldSystemFont(ofSize: 14))
+                               font: .boldSystemFont(ofSize: 14),
+                               prefersLargeTitles: true)
     }
     public var view: ViewTheme {
         return ViewTheme(backgroundColor: .clear,

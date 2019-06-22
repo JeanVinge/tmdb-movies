@@ -14,7 +14,10 @@ extension UINavigationBar {
         self.barTintColor = theme.navigationBar.background
         self.isTranslucent = isTranslucent
         self.tintColor = theme.navigationBar.tintColor
-        self.titleTextAttributes = [.foregroundColor: theme.navigationBar.titleColor, .font: theme.navigationBar.font]
+        self.prefersLargeTitles = theme.navigationBar.prefersLargeTitles
+        self.largeTitleTextAttributes = [.foregroundColor: theme.navigationBar.titleColor]
+        self.titleTextAttributes = [.foregroundColor: theme.navigationBar.titleColor,
+                                    .font: theme.navigationBar.font]
         if isTranslucent {
             self.setBackgroundImage(UIImage(), for: .default)
             self.shadowImage = UIImage()

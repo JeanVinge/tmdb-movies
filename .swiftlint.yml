@@ -5,10 +5,10 @@ excluded:
 disabled_rules:
 
 function_body_length:
-  - 20
+  - 30
 
 cyclomatic_complexity:
-  - 5
+  - 7
 
 identifier_name:
   min_length: 1

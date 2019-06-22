@@ -27,10 +27,12 @@ open class ViewController: UIViewController {
         super.init(nibName: nil,
                    bundle: nil)
         self.view = view
-        view.setup(StateableViewController(self), router: router)
+        view.setup(StateableViewController(self),
+                   router: router == nil ? ScreenRouter(self) : router)
         view.bindViewModel()
         view.layoutIfNeeded()
         configureTheme(theme)
+        navigationController?.navigationBar.configure(theme: theme)
     }
 
     open override func viewWillAppear(_ animated: Bool) {

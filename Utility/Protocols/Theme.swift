@@ -27,15 +27,18 @@ public struct NavigationTheme {
     public var titleColor: UIColor
     public var tintColor: UIColor
     public var font: UIFont
+    public var prefersLargeTitles: Bool
 
     public init(background: UIColor,
                 titleColor: UIColor,
                 tintColor: UIColor,
-                font: UIFont) {
+                font: UIFont,
+                prefersLargeTitles: Bool) {
         self.background = background
         self.titleColor = titleColor
         self.tintColor = tintColor
         self.font = font
+        self.prefersLargeTitles = prefersLargeTitles
     }
 }
 

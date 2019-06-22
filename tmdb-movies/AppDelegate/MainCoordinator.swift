@@ -8,13 +8,16 @@
 
 import UIKit
 import Utility
+import Resources
 
 struct MainCoordinator: Coordinator {
 
     // MARK: Init
 
     func start(window: UIWindow) {
+        let vc = ViewController(MoviesView(MoviesViewModel()), theme: HomeTheme())
+        vc.title = L10n.General.upcommingMovies
         self.rootViewController(in: window, with:
-            ViewController(TestView(TestViewModel()), theme: HomeTheme()))
+            NavigationController(vc))
     }
 }

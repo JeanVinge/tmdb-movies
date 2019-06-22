@@ -11,14 +11,15 @@ import Utility
 struct HomeTheme: Theme {
     init() {}
     var navigationBar: NavigationTheme {
-        return NavigationTheme(background: .white,
-                               titleColor: .black,
-                               tintColor: .black,
-                               font: .boldSystemFont(ofSize: 14))
+        return NavigationTheme(background: .kinoGray,
+                               titleColor: .white,
+                               tintColor: .white,
+                               font: .systemFont(ofSize: 16, weight: .heavy),
+                               prefersLargeTitles: true)
     }
     var view: ViewTheme {
-        return ViewTheme(backgroundColor: .white,
+        return ViewTheme(backgroundColor: .kinoGray,
                          tintColor: .white,
-                         statusBarStyle: .default)
+                         statusBarStyle: .lightContent)
     }
 }

@@ -1,6 +1,10 @@
 platform :ios, '11.0'
 use_frameworks!
 
+def objectiveC
+  pod 'UIScrollView-InfiniteScroll'
+end
+
 def rxLibs
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
@@ -17,10 +21,11 @@ end
 def libs
   rxLibs
   pod 'SnapKit'
-  pod 'KeychainSwift'
+  pod 'Kingfisher'
 end
 
 def all_libs
+  objectiveC
   lint_code_generation
   libs
   rxLibs

@@ -11,6 +11,15 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 public enum L10n {
+
+  public enum General {
+    /// Loading
+    public static let loading = L10n.tr("Localizable", "general.loading")
+    /// Release date
+    public static let releaseDate = L10n.tr("Localizable", "general.release-date")
+    /// Upcomming Movies
+    public static let upcommingMovies = L10n.tr("Localizable", "general.upcomming-movies")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

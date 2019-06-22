@@ -40,4 +40,7 @@ public enum APIErrors: Error {
         case jsonEncodingFailed(error: Error)
         case propertyListEncodingFailed(error: Error)
     }
+    case objectMapping(Error, Response)
+    case jsonMapping(Response)
+    case stringMapping(Response)
 }
