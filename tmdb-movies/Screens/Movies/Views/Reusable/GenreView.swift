@@ -22,6 +22,7 @@ final class GenreView: GenericView {
     override func initSubviews() {
         addSubview(titleLabel)
         backgroundColor = .red
+        clipsToBounds = true
     }
 
     override func initConstraints() {

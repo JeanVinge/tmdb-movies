@@ -23,6 +23,8 @@ class MoviesView: View<MoviesViewModel> {
         $0.barStyle = .black
         $0.searchBarStyle = .minimal
         $0.placeholder = L10n.General.search
+        $0.keyboardType = .asciiCapable
+        $0.autocapitalizationType = .none
     })
     lazy var collectionView = CollectionView(RefreshControl())
     lazy var builder: RxCollectionCellBuilder<Movies, MovieCell> = {
@@ -78,7 +80,7 @@ class MoviesView: View<MoviesViewModel> {
             .rx
             .paginate
             .flatMap { _ -> Driver<Int> in
-                return .just(MoviesRepository.shared.currentPage) }
+                return .just(MoviesRepository.shared.nextPage) }
             .asDriverJustComplete
 
         let openDetail = collectionView
@@ -123,10 +125,5 @@ class MoviesView: View<MoviesViewModel> {
             .trackActivity
             .drive(rx.changeState)
             .disposed(by: rx.disposeBag)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        collectionView.invalidateIntrinsicContentSize()
     }
 }

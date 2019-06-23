@@ -29,7 +29,7 @@ NSObject, UICollectionViewDelegateFlowLayout {
 
     public init(_ collectionView: UICollectionView) {
         super.init()
-        let animation = AnimationConfiguration(insertAnimation: .automatic,
+        let animation = AnimationConfiguration(insertAnimation: .fade,
                                                reloadAnimation: .fade,
                                                deleteAnimation: .automatic)
         self.dataSource = RxCollectionViewSectionedAnimatedDataSource<T>

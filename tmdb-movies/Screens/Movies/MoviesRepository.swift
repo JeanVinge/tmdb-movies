@@ -10,8 +10,8 @@ import Domain
 
 class MoviesRepository: NSObject {
 
-    var movies: [Movies] = []
-    var currentPage: Int = 1
+    var storedMovies: [Movies] = []
+    var nextPage: Int = 1
     var totalPages: Int = 0
     var hasNextPage: Bool = false
 
@@ -19,24 +19,26 @@ class MoviesRepository: NSObject {
 
     func search(_ text: String) -> [Movies] {
         if text.count > 0 {
-            return movies
-                .filter { $0.results.filter { $0.title.caseInsensitiveCompare(text) == .orderedSame }.count > 0
+            return storedMovies.map { movies in
+                var mmovies = movies
+                mmovies.results = movies
+                    .results
+                    .filter { $0
+                        .title
+                        .lowercased()
+                        .contains(text.lowercased()) }
+                return mmovies
             }
         } else {
-            return movies
+            return storedMovies
         }
     }
 
-    func movies(_ newMovies: [Movies]) -> [Movies] {
-        let newPage = newMovies.last?.page ?? 1
-        totalPages = newMovies.last?.pages ?? 1
-        if newPage == 1 {
-            movies = newMovies
-        } else {
-            movies.append(contentsOf: newMovies)
-        }
-        hasNextPage = newPage < totalPages
-        currentPage = newPage + 1
-        return movies
+    func add(_ movies: Movies) -> [Movies] {
+        totalPages = movies.pages
+        _ = movies.page == 1 ? storedMovies = [movies] : storedMovies.append(movies)
+        hasNextPage = movies.page < totalPages
+        nextPage = movies.page + 1
+        return storedMovies
     }
 }

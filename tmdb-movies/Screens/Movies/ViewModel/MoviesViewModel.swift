@@ -70,10 +70,11 @@ struct MoviesViewModel: ViewModel, Transformable {
 
         let fetching = input
             .filter
-            .map { MoviesRepository.shared.search($0) }.debug()
+            .map { MoviesRepository.shared.search($0) }
 
         let mergedMovies = Driver<Movies>
-            .merge([movies, newPage]).map { MoviesRepository.shared.movies([$0]) }
+            .merge([movies, newPage])
+            .map { MoviesRepository.shared.add($0) }
 
         let combinedMovies = Driver<[Movies]>
             .merge([fetching, mergedMovies])
