@@ -13,12 +13,16 @@ class MoviesRepository: NSObject {
     var storedMovies: [Movies] = []
     var nextPage: Int = 1
     var totalPages: Int = 0
-    var hasNextPage: Bool = false
+    var isSearching: Bool = false
+    var hasNextPage: Bool {
+        return (nextPage < totalPages) && !isSearching
+    }
 
     static let shared = MoviesRepository()
 
     func search(_ text: String) -> [Movies] {
-        if text.count > 0 {
+        isSearching = text.count > 0
+        if isSearching {
             return storedMovies.map { movies in
                 var mmovies = movies
                 mmovies.results = movies
@@ -37,7 +41,6 @@ class MoviesRepository: NSObject {
     func add(_ movies: Movies) -> [Movies] {
         totalPages = movies.pages
         _ = movies.page == 1 ? storedMovies = [movies] : storedMovies.append(movies)
-        hasNextPage = movies.page < totalPages
         nextPage = movies.page + 1
         return storedMovies
     }

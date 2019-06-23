@@ -60,6 +60,7 @@
 		38D1CA3E22BE715800F42217 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA3D22BE715800F42217 /* LoadingView.swift */; };
 		38D1CA4022BE722000F42217 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA3F22BE722000F42217 /* MessageView.swift */; };
 		38D1CA4322BE94B800F42217 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA4122BE918500F42217 /* ActivityIndicator.swift */; };
+		38D1CA4822BFA2EB00F42217 /* CollectionViewReactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA4722BFA2EB00F42217 /* CollectionViewReactive+Extensions.swift */; };
 		38F9E16522B07694009B6715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E16422B07694009B6715 /* AppDelegate.swift */; };
 		38F9E16C22B07695009B6715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F9E16B22B07695009B6715 /* Assets.xcassets */; };
 		38F9E1DA22B3BD23009B6715 /* Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F9E1D122B3BD23009B6715 /* Utility.framework */; };
@@ -297,6 +298,7 @@
 		38D1CA3F22BE722000F42217 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		38D1CA4122BE918500F42217 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		38D1CA4422BF37D300F42217 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/localizable.strings"; sourceTree = "<group>"; };
+		38D1CA4722BFA2EB00F42217 /* CollectionViewReactive+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewReactive+Extensions.swift"; sourceTree = "<group>"; };
 		38F9E16122B07694009B6715 /* tmdb-movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tmdb-movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F9E16422B07694009B6715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38F9E16B22B07695009B6715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -688,6 +690,14 @@
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
+		38D1CA4622BF9BE000F42217 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				384E9A3F22BD96EE0054FD22 /* MoviesRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		38F9E15822B07694009B6715 = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +871,7 @@
 				38F9E24222B3BF0E009B6715 /* Observable+Extensions.swift */,
 				38F9E25322B3CACA009B6715 /* SharedSequenceConvertibleType+Extensions.swift */,
 				38F9E29922B3D627009B6715 /* UIViewControllerReactive+Extensions.swift */,
+				38D1CA4722BFA2EB00F42217 /* CollectionViewReactive+Extensions.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -1061,10 +1072,10 @@
 		38F9E2B522B3F9D1009B6715 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				38D1CA4622BF9BE000F42217 /* Repository */,
 				38D1CA1522BD9D5700F42217 /* Router */,
 				384E9A0E22BBAFFC0054FD22 /* ViewModel */,
 				384E9A0F22BBB0010054FD22 /* Views */,
-				384E9A3F22BD96EE0054FD22 /* MoviesRepository.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -1956,6 +1967,7 @@
 				38F9E24B22B3C031009B6715 /* UIColor+Extensions.swift in Sources */,
 				38F9E24722B3BF1A009B6715 /* UINavigationBarController+Extensions.swift in Sources */,
 				384E9A1E22BBBFC60054FD22 /* RefreshControl.swift in Sources */,
+				38D1CA4822BFA2EB00F42217 /* CollectionViewReactive+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

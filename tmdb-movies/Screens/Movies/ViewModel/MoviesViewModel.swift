@@ -22,7 +22,7 @@ struct MoviesViewModel: ViewModel, Transformable {
     struct Input {
         var trigger: Driver<Void>
         var pullRefresh: Driver<Void>
-        var paginate: Driver<Int>
+        var paginate: Driver<Void>
         var openDetail: Driver<Movie>
         var filter: Driver<String>
     }
@@ -31,6 +31,7 @@ struct MoviesViewModel: ViewModel, Transformable {
         var openDetail: Driver<Void>
         var trackActivity: Driver<LoadingView.State>
         var hasNextPage: Driver<Bool>
+        var canPullRefresh: Driver<Bool>
     }
 
     // MARK: Init
@@ -38,8 +39,7 @@ struct MoviesViewModel: ViewModel, Transformable {
     func transform(input: Input) -> Output {
 
         let trackActivity = ActivityIndicator()
-
-        let firstPage = self.useCases.movies(1)
+        let firstPage = useCases.movies(1)
 
         let trigger = input
             .trigger
@@ -50,14 +50,17 @@ struct MoviesViewModel: ViewModel, Transformable {
 
         let pull = input
             .pullRefresh
+            .filter { _ in !MoviesRepository.shared.isSearching }
             .flatMap { firstPage
                 .asObservable()
                 .asDriverJustComplete }
 
-        let movies = Driver<Movies>.merge([trigger,
-                                           pull])
+        let movies = Driver<Movies>
+            .merge([trigger, pull])
 
-        let newPage = input.paginate
+        let newPage = input
+            .paginate
+            .map { _ in MoviesRepository.shared.nextPage }
             .flatMapLatest { self.useCases
                 .movies($0)
                 .asObservable().asDriverJustComplete }
@@ -79,10 +82,16 @@ struct MoviesViewModel: ViewModel, Transformable {
         let combinedMovies = Driver<[Movies]>
             .merge([fetching, mergedMovies])
 
+        let hasNextPage = combinedMovies
+            .map { _ in MoviesRepository.shared.hasNextPage }
+
+        let canPullRefresh = combinedMovies
+            .map { _ in !MoviesRepository.shared.isSearching }
+
         return .init(movies: combinedMovies,
                      openDetail: openDetail,
                      trackActivity: trackActivity.asDriver(),
-                     hasNextPage: combinedMovies
-                        .map { _ in MoviesRepository.shared.hasNextPage })
+                     hasNextPage: hasNextPage,
+                     canPullRefresh: canPullRefresh)
     }
 }

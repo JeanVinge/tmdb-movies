@@ -79,8 +79,7 @@ class MoviesView: View<MoviesViewModel> {
         let pagination = collectionView
             .rx
             .paginate
-            .flatMap { _ -> Driver<Int> in
-                return .just(MoviesRepository.shared.nextPage) }
+            .mapToVoid
             .asDriverJustComplete
 
         let openDetail = collectionView
@@ -88,8 +87,11 @@ class MoviesView: View<MoviesViewModel> {
             .modelSelected(Movie.self)
             .asDriver()
 
-        let triggerMerged = Driver<Void>.merge([state.viewDidLoad,
-                                                loadingView.rx.tryAgain])
+        let triggerMerged = Driver<Void>
+            .merge([state.viewDidLoad,
+                    loadingView
+                        .rx
+                        .tryAgain])
 
         return viewModel
             .transform(input: MoviesViewModel
@@ -104,18 +106,25 @@ class MoviesView: View<MoviesViewModel> {
                     refreshControl: UIRefreshControl) {
         output.movies
             .map { _ in false }
-            .drive(refreshControl.rx.isRefreshing)
+            .drive(refreshControl
+                .rx
+                .isRefreshing)
             .disposed(by: rx.disposeBag)
         output.movies
-            .drive(collectionView.rx
+            .drive(collectionView
+                .rx
                 .items(dataSource: builder.dataSource))
             .disposed(by: rx.disposeBag)
         output.hasNextPage
-            .drive(collectionView.rx.shouldEnabledInfiniteScroll)
+            .drive(collectionView
+                .rx
+                .shouldEnabledInfiniteScroll)
             .disposed(by: rx.disposeBag)
         output.movies
             .map { _ in true }
-            .drive(collectionView.rx.finishScroll)
+            .drive(collectionView
+                .rx
+                .finishScroll)
             .disposed(by: rx.disposeBag)
         output
             .openDetail
@@ -124,6 +133,12 @@ class MoviesView: View<MoviesViewModel> {
         output
             .trackActivity
             .drive(rx.changeState)
+            .disposed(by: rx.disposeBag)
+        output
+            .canPullRefresh
+            .drive(collectionView
+                .rx
+                .disableRefresh)
             .disposed(by: rx.disposeBag)
     }
 }

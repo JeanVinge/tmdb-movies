@@ -38,11 +38,11 @@ final class MovieDetailView: View<MovieDetailViewModel> {
     lazy var genreView = GenreView()
     lazy var releaseDateView = ReleaseDateView()
 
-    lazy var textView: UILabel = UILabel(ViewStyle<UILabel> {
+    lazy var textView: UITextView = UITextView(ViewStyle<UITextView> {
         $0.font = .systemFont(ofSize: 16, weight: .regular)
         $0.textColor = .white
         $0.backgroundColor = .clear
-        $0.numberOfLines = 0
+        $0.isEditable = false
     })
 
     // MARK: Init
@@ -59,7 +59,8 @@ final class MovieDetailView: View<MovieDetailViewModel> {
 
     override func initConstraints() {
         imageView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalToSuperview()
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(250)
         }
         gradientView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
@@ -70,7 +71,7 @@ final class MovieDetailView: View<MovieDetailViewModel> {
             make.left.right.equalToSuperview().inset(20)
         }
         componentView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(imageView.snp.bottom).offset(10)
             make.right.equalToSuperview()
             make.left.greaterThanOrEqualToSuperview()
         }
@@ -85,8 +86,9 @@ final class MovieDetailView: View<MovieDetailViewModel> {
             make.bottom.equalToSuperview()
         }
         textView.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview().inset(30)
-            make.bottom.equalToSuperview().inset(40)
+            make.top.equalTo(componentView.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(20)
+            make.bottom.greaterThanOrEqualToSuperview().inset(20)
         }
     }
 

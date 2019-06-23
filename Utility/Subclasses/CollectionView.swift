@@ -30,6 +30,10 @@ open class CollectionViewFlowLayout: UICollectionViewFlowLayout {
 
 open class CollectionView: UICollectionView, ConfigurableView {
 
+    // MARK: Var
+
+    public var refresh: UIRefreshControl!
+
     // MARK: Init
 
     public convenience init() {
@@ -42,6 +46,7 @@ open class CollectionView: UICollectionView, ConfigurableView {
                             flowLayout: UICollectionViewLayout = CollectionViewFlowLayout()) {
         self.init(frame: .zero,
                   collectionViewLayout: flowLayout)
+        self.refresh = refreshControl
         self.refreshControl = refreshControl
         initLayout()
     }
