@@ -9,6 +9,7 @@ before_install:
 - bundle exec pod install
 env:
   global:
+  - swift=5.0
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   - WORKSPACE=tmdb-movies.xcworkspace

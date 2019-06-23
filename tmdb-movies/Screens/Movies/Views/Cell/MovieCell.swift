@@ -11,12 +11,15 @@ import Domain
 import Kingfisher
 import Resources
 
+let width = UIScreen.main.bounds.width
+let cardWidth = (width / 2) - width.truncatingRemainder(dividingBy: 2)
+
 final class MovieCell: GenericView, ContainerCellConvertible {
 
     // MARK: Var
 
     typealias Configuration = Movie
-    var resize: ContentResize = .size(CGSize(width: UIScreen.main.bounds.width / 2, height: 350))
+    var resize: ContentResize = .size(CGSize(width: cardWidth, height: 350))
 
     lazy var imageView = UIImageView(ViewStyle<UIImageView> {
         $0.contentMode = .scaleAspectFill

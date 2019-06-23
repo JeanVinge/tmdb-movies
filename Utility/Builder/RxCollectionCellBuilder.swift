@@ -62,16 +62,7 @@ NSObject, UICollectionViewDelegateFlowLayout {
     }
 
     func calculateSize(_ cell: UICollectionViewCell, at indexPath: IndexPath) -> CGSize {
-        var mSize: CGSize = .zero
-        if let filter = cellSize.first(where: { $0.cell == cell }) {
-            if let size = filter.size {
-                return size
-            } else {
-                mSize = cell.size(at: indexPath)
-            }
-        }
-        cellSize[indexPath.section].size = mSize
-        return mSize
+        return cell.size(at: indexPath)
     }
 
     public func collectionView(_ collectionView: UICollectionView,

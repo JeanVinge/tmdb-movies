@@ -87,7 +87,7 @@ final class MovieDetailView: View<MovieDetailViewModel> {
         }
         textView.snp.makeConstraints { (make) in
             make.top.equalTo(componentView.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.right.equalToSuperview().inset(30)
             make.bottom.greaterThanOrEqualToSuperview().inset(20)
         }
     }
