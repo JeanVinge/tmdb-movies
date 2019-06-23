@@ -5,8 +5,8 @@ branches:
     - development
 before_install:
 - ./install.sh
-- bundle exec pod repo update
-- bundle exec pod install
+# - bundle exec pod repo update
+# - bundle exec pod install
 env:
   global:
   - swift=5.0
@@ -16,7 +16,7 @@ env:
   - SCHEME_NAME="tmdb-movies"
   matrix:
     - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES" CODE_SIGN="NO"
-    - DESTINATION="OS=11.4,name=iPhone X"        SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES"
+    # - DESTINATION="OS=11.4,name=iPhone X"        SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES"
 script:
   - set -o pipefail
   - xcodebuild -version

@@ -13,9 +13,6 @@ PODS:
     - Differentiator (~> 4.0)
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
-  - RxKeyboard (1.0.0):
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
@@ -33,7 +30,6 @@ DEPENDENCIES:
   - RxBlocking
   - RxCocoa (~> 5)
   - RxDataSources
-  - RxKeyboard
   - RxSwift (~> 5)
   - RxTest
   - SnapKit
@@ -49,7 +45,6 @@ SPEC REPOS:
     - RxBlocking
     - RxCocoa
     - RxDataSources
-    - RxKeyboard
     - RxRelay
     - RxSwift
     - RxTest
@@ -70,7 +65,6 @@ SPEC CHECKSUMS:
   RxBlocking: c67185d26498ea3cbe3e121917c3c16739e43123
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxKeyboard: 6683c4344304a00f943c158bd8a43ce5469c82a7
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   RxTest: 4349afe98f564e0a9bc19063368904622d17d49a
@@ -79,6 +73,6 @@ SPEC CHECKSUMS:
   SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
   UIScrollView-InfiniteScroll: 3ef456bcbe759c19f510a383cff96e6647c98c98
 
-PODFILE CHECKSUM: 4dba21c14bdfaf2f6f528407c300bb6bd975a402
+PODFILE CHECKSUM: 9572600851476ff4a0c345c2ff29cf375d89e539
 
 COCOAPODS: 1.7.1
