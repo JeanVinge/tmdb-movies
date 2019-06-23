@@ -1,9 +1,9 @@
 coverage_service: xml
 xcodeproj: tmdb-movies.xcodeproj
 workspace: tmdb-movies.xcworkspace
-scheme: DEV
+scheme: TMDb
 input_format: profdata
-source_directory: tmdb-movies/
+source_directory: /
 output_directory: test_output/
 ignore:
   - Pods/*

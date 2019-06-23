@@ -15,21 +15,22 @@ env:
   - WORKSPACE=tmdb-movies.xcworkspace
   - SCHEME_NAME="tmdb-movies"
   matrix:
-    - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES" CODE_SIGN="NO"
+    bundle exec fastlane test
+    # - DESTINATION="OS=12.1,name=iPhone XS"       SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES" CODE_SIGN="NO"
     # - DESTINATION="OS=11.4,name=iPhone X"        SCHEME="$SCHEME_NAME" RUN_TESTS="YES" BUILD="YES"
 script:
-  - set -o pipefail
-  - xcodebuild -version
-  - xcodebuild -showsdks
+  # - set -o pipefail
+  # - xcodebuild -version
+  # - xcodebuild -showsdks
 
   # Build Framework in Release and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" CODE_SIGNING_REQUIRED="$CODE_SIGN" -UseModernBuildSystem=NO -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-    else
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" CODE_SIGNING_REQUIRED="$CODE_SIGN" -UseModernBuildSystem=NO -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
-
-  # Build Example in Debug if specified
-  - if [ $BUILD == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" CODE_SIGNING_REQUIRED="$CODE_SIGN" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
+  # - if [ $RUN_TESTS == "YES" ]; then
+  #     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" CODE_SIGNING_REQUIRED="$CODE_SIGN" -UseModernBuildSystem=NO -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+  #   else
+  #     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" CODE_SIGNING_REQUIRED="$CODE_SIGN" -UseModernBuildSystem=NO -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
+  #   fi
+  #
+  # # Build Example in Debug if specified
+  # - if [ $BUILD == "YES" ]; then
+  #     xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" CODE_SIGNING_REQUIRED="$CODE_SIGN" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+  #   fi
