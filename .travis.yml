@@ -5,6 +5,7 @@ branches:
     - development
 before_install:
 - ./install.sh
+- bundle exec pod repo update
 - bundle exec pod install
 env:
   global:
