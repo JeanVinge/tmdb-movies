@@ -11,11 +11,19 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import Domain
+import Resources
 
 class MoviesView: View<MoviesViewModel> {
 
     // MARK: Var
 
+    lazy var searchBar: UISearchBar = UISearchBar(ViewStyle<UISearchBar> {
+        $0.barTintColor = .kinoGray
+        $0.tintColor = .white
+        $0.barStyle = .black
+        $0.searchBarStyle = .minimal
+        $0.placeholder = L10n.General.search
+    })
     lazy var collectionView = CollectionView(RefreshControl())
     lazy var builder: RxCollectionCellBuilder<Movies, MovieCell> = {
         return RxCollectionCellBuilder<Movies, MovieCell>(collectionView)
@@ -25,12 +33,18 @@ class MoviesView: View<MoviesViewModel> {
 
     override func initSubviews() {
         addSubview(collectionView)
+        addSubview(searchBar)
         collectionView.backgroundColor = .clear
+        collectionView.keyboardDismissMode = .onDrag
         collectionView.initializeIndicatorView()
     }
     override func initConstraints() {
         collectionView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalToSuperview()
+            make.top.equalToSuperview().inset(60)
+            make.left.right.bottom.equalToSuperview()
+        }
+        searchBar.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
         }
     }
 
@@ -48,6 +62,12 @@ class MoviesView: View<MoviesViewModel> {
     func bindInput(_ state: Stateable,
                    refreshControl: UIRefreshControl,
                    viewModel: MoviesViewModel) -> MoviesViewModel.Output {
+
+        let searchTrigger = searchBar
+            .rx
+            .text
+            .map { $0 ?? "" }
+            .asDriverJustComplete
 
         let refreshTrigger = refreshControl
             .rx
@@ -73,8 +93,9 @@ class MoviesView: View<MoviesViewModel> {
             .transform(input: MoviesViewModel
                 .Input(trigger: triggerMerged,
                        pullRefresh: refreshTrigger,
-                   paginate: pagination,
-                   openDetail: openDetail))
+                       paginate: pagination,
+                       openDetail: openDetail,
+                       filter: searchTrigger))
     }
 
     func bindOutput(_ output: MoviesViewModel.Output,

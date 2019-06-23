@@ -10,7 +10,6 @@ def rxLibs
   pod 'RxCocoa', '~> 5'
   pod 'RxDataSources'
   pod 'NSObject+Rx'
-  pod 'RxKeyboard'
 end
 
 def lint_code_generation

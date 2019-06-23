@@ -11,3 +11,4 @@
 "general.release-date" = "Release date";
 "general.try-again" = "Try again";
 "general.could-not-load-information" = "Sorry we could not load movie list.";
+"general.search" = "Search";

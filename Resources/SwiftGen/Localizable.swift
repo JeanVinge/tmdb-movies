@@ -19,6 +19,8 @@ public enum L10n {
     public static let loading = L10n.tr("localizable", "general.loading")
     /// Release date
     public static let releaseDate = L10n.tr("localizable", "general.release-date")
+    /// Search
+    public static let search = L10n.tr("localizable", "general.search")
     /// Try again
     public static let tryAgain = L10n.tr("localizable", "general.try-again")
     /// Upcoming Movies

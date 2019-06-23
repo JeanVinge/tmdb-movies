@@ -24,6 +24,7 @@ struct MoviesViewModel: ViewModel, Transformable {
         var pullRefresh: Driver<Void>
         var paginate: Driver<Int>
         var openDetail: Driver<Movie>
+        var filter: Driver<String>
     }
     struct Output {
         var movies: Driver<[Movies]>
@@ -67,14 +68,20 @@ struct MoviesViewModel: ViewModel, Transformable {
                 .coordinate(MoviesRouter
                     .openDetail($0)) ?? .just(()) }
 
-        let mergedMovies = Driver<Movies>
-            .merge([movies,
-                    newPage]).map { MoviesRepository.shared.movies([$0]) }
+        let fetching = input
+            .filter
+            .map { MoviesRepository.shared.search($0) }.debug()
 
-        return .init(movies: mergedMovies,
+        let mergedMovies = Driver<Movies>
+            .merge([movies, newPage]).map { MoviesRepository.shared.movies([$0]) }
+
+        let combinedMovies = Driver<[Movies]>
+            .merge([fetching, mergedMovies])
+
+        return .init(movies: combinedMovies,
                      openDetail: openDetail,
                      trackActivity: trackActivity.asDriver(),
-                     hasNextPage: mergedMovies
+                     hasNextPage: combinedMovies
                         .map { _ in MoviesRepository.shared.hasNextPage })
     }
 }

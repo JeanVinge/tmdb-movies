@@ -17,6 +17,16 @@ class MoviesRepository: NSObject {
 
     static let shared = MoviesRepository()
 
+    func search(_ text: String) -> [Movies] {
+        if text.count > 0 {
+            return movies
+                .filter { $0.results.filter { $0.title.caseInsensitiveCompare(text) == .orderedSame }.count > 0
+            }
+        } else {
+            return movies
+        }
+    }
+
     func movies(_ newMovies: [Movies]) -> [Movies] {
         let newPage = newMovies.last?.page ?? 1
         totalPages = newMovies.last?.pages ?? 1
