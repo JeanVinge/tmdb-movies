@@ -10,4 +10,5 @@ import RxSwift
 
 public protocol MovieUseCases {
     func movies(_ page: Int) -> Single<Movies>
+    func transform(_ movies: Movies, genreList: GenreList) -> Movies
 }

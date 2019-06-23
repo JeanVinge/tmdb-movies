@@ -17,14 +17,19 @@ public struct MovieUseCases: Domain.MovieUseCases {
     public func movies(_ page: Int) -> Single<Movies> {
         return Request().request(MoviesTargetType.genreList).map(GenreList.self).flatMap { list in
             return Request().request(MoviesTargetType.movies(page: page)).map(Movies.self).flatMap { movies in
-                var mMovies = movies
-                mMovies.results = movies.results.compactMap { movie in
-                    var mMovie = movie
-                    mMovie.genres = list.genres.filter { genre in movie.genreIds.filter { $0 == genre.id }.count > 0 }
-                    return mMovie
-                }
-                return .just(mMovies)
+                return .just(self.transform(movies,
+                                       genreList: list))
             }
         }
+    }
+
+    public func transform(_ movies: Movies, genreList: GenreList) -> Movies {
+        var mMovies = movies
+        mMovies.results = movies.results.compactMap { movie in
+            var mMovie = movie
+            mMovie.genres = genreList.genres.filter { genre in movie.genreIds.filter { $0 == genre.id }.count > 0 }
+            return mMovie
+        }
+        return mMovies
     }
 }

@@ -8,14 +8,17 @@
 
 import Foundation
 
-extension JSONDecoder {
-    public static func decode<T: Decodable>(_ classObj: T.Type, from JSON: Any) throws -> T {
+public extension JSONDecoder {
+    static func decode<T: Decodable>(_ classObj: T.Type, from JSON: Any) throws -> T {
         return try JSONDecoder.decode(classObj.self,
                                       from: try JSONSerialization.data(
                                         withJSONObject: JSON, options: []))
     }
 
-//    public static func decode<T: Decodable>(_ classObj: T.Type, from mock: MockFile, bundle: Bundle) throws -> T {
-//        return try JSONDecoder().decode(classObj.self, from: Data.data(with: mock, bundle: bundle))
-//    }
+    static func decode<T: Decodable>(_ classObj: T.Type = T.self,
+                                     from mock: MockFile,
+                                     bundle: Bundle = Bundle.main) throws -> T {
+        return try JSONDecoder().decode(classObj.self,
+                                        from: Data(mock, bundle: bundle))
+    }
 }
