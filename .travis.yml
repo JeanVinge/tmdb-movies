@@ -5,6 +5,7 @@ branches:
     - development
 before_install:
 - ./install.sh
+- bundle exec pod install
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
