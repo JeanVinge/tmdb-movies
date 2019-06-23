@@ -67,6 +67,15 @@
 		38D1CA7822C00B6C00F42217 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA7722C00B6C00F42217 /* Test.swift */; };
 		38D1CA7A22C00B8700F42217 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA7922C00B8700F42217 /* Test.swift */; };
 		38D1CA7C22C00B9400F42217 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA7B22C00B9400F42217 /* Test.swift */; };
+		38D1CA6422BFC6A900F42217 /* PresentTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA5E22BFC6A900F42217 /* PresentTransition.swift */; };
+		38D1CA6522BFC6A900F42217 /* DismissTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA5F22BFC6A900F42217 /* DismissTransition.swift */; };
+		38D1CA6622BFC6A900F42217 /* TabBarPresentTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA6022BFC6A900F42217 /* TabBarPresentTransition.swift */; };
+		38D1CA6722BFC6A900F42217 /* PopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA6122BFC6A900F42217 /* PopTransition.swift */; };
+		38D1CA6822BFC6A900F42217 /* TabBarPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA6222BFC6A900F42217 /* TabBarPushTransition.swift */; };
+		38D1CA6922BFC6A900F42217 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA6322BFC6A900F42217 /* PushTransition.swift */; };
+		38D1CA6C22BFC6B200F42217 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA6A22BFC6B200F42217 /* Coordinator.swift */; };
+		38D1CA6D22BFC6B200F42217 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA6B22BFC6B200F42217 /* Transition.swift */; };
+		38D1CA7122BFC74700F42217 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38D1CA7022BFC74700F42217 /* Icons.xcassets */; };
 		38F9E16522B07694009B6715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E16422B07694009B6715 /* AppDelegate.swift */; };
 		38F9E16C22B07695009B6715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F9E16B22B07695009B6715 /* Assets.xcassets */; };
 		38F9E1DA22B3BD23009B6715 /* Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F9E1D122B3BD23009B6715 /* Utility.framework */; };
@@ -91,14 +100,6 @@
 		38F9E24722B3BF1A009B6715 /* UINavigationBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E24522B3BF1A009B6715 /* UINavigationBarController+Extensions.swift */; };
 		38F9E24B22B3C031009B6715 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E24A22B3C031009B6715 /* UIColor+Extensions.swift */; };
 		38F9E25422B3CACA009B6715 /* SharedSequenceConvertibleType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25322B3CACA009B6715 /* SharedSequenceConvertibleType+Extensions.swift */; };
-		38F9E25F22B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25622B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transition.swift */; };
-		38F9E26022B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PresentTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25822B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PresentTransition.swift */; };
-		38F9E26122B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25922B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPushTransition.swift */; };
-		38F9E26222B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/DismissTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25A22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/DismissTransition.swift */; };
-		38F9E26322B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPresentTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25B22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPresentTransition.swift */; };
-		38F9E26422B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25C22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PushTransition.swift */; };
-		38F9E26522B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25D22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PopTransition.swift */; };
-		38F9E26622B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E25E22B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Coordinator.swift */; };
 		38F9E26C22B3CDFB009B6715 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E26922B3CDFB009B6715 /* Typealias.swift */; };
 		38F9E26E22B3CFD1009B6715 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E26A22B3CDFB009B6715 /* Errors.swift */; };
 		38F9E28422B3D0D4009B6715 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F9E27B22B3D0D4009B6715 /* Networking.framework */; };
@@ -109,7 +110,6 @@
 		38F9E29A22B3D627009B6715 /* UIViewControllerReactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E29922B3D627009B6715 /* UIViewControllerReactive+Extensions.swift */; };
 		38F9E29E22B3D6F1009B6715 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E29B22B3D676009B6715 /* UIApplication+Extensions.swift */; };
 		38F9E2A022B3D715009B6715 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E29F22B3D715009B6715 /* MainCoordinator.swift */; };
-		38F9E2A522B3DD75009B6715 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F9E2A422B3DD75009B6715 /* Icons.xcassets */; };
 		38F9E2A922B3DE16009B6715 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E2A722B3DE16009B6715 /* Icons.swift */; };
 		38F9E2AA22B3DE16009B6715 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E2A822B3DE16009B6715 /* Localizable.swift */; };
 		38F9E2AE22B3DEC4009B6715 /* HomeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F9E2AD22B3DEC4009B6715 /* HomeTheme.swift */; };
@@ -307,6 +307,15 @@
 		38D1CA7722C00B6C00F42217 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		38D1CA7922C00B8700F42217 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		38D1CA7B22C00B9400F42217 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		38D1CA5E22BFC6A900F42217 /* PresentTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentTransition.swift; path = Transitions/PresentTransition.swift; sourceTree = SOURCE_ROOT; };
+		38D1CA5F22BFC6A900F42217 /* DismissTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DismissTransition.swift; path = Transitions/DismissTransition.swift; sourceTree = SOURCE_ROOT; };
+		38D1CA6022BFC6A900F42217 /* TabBarPresentTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarPresentTransition.swift; path = Transitions/TabBarPresentTransition.swift; sourceTree = SOURCE_ROOT; };
+		38D1CA6122BFC6A900F42217 /* PopTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopTransition.swift; path = Transitions/PopTransition.swift; sourceTree = SOURCE_ROOT; };
+		38D1CA6222BFC6A900F42217 /* TabBarPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarPushTransition.swift; path = Transitions/TabBarPushTransition.swift; sourceTree = SOURCE_ROOT; };
+		38D1CA6322BFC6A900F42217 /* PushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushTransition.swift; path = Transitions/PushTransition.swift; sourceTree = SOURCE_ROOT; };
+		38D1CA6A22BFC6B200F42217 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		38D1CA6B22BFC6B200F42217 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		38D1CA7022BFC74700F42217 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		38F9E16122B07694009B6715 /* tmdb-movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tmdb-movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F9E16422B07694009B6715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38F9E16B22B07695009B6715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -338,14 +347,6 @@
 		38F9E24522B3BF1A009B6715 /* UINavigationBarController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBarController+Extensions.swift"; sourceTree = "<group>"; };
 		38F9E24A22B3C031009B6715 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		38F9E25322B3CACA009B6715 /* SharedSequenceConvertibleType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharedSequenceConvertibleType+Extensions.swift"; sourceTree = "<group>"; };
-		38F9E25622B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transition.swift; sourceTree = "<group>"; };
-		38F9E25822B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PresentTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PresentTransition.swift; sourceTree = "<group>"; };
-		38F9E25922B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPushTransition.swift; sourceTree = "<group>"; };
-		38F9E25A22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/DismissTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/DismissTransition.swift; sourceTree = "<group>"; };
-		38F9E25B22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPresentTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPresentTransition.swift; sourceTree = "<group>"; };
-		38F9E25C22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PushTransition.swift; sourceTree = "<group>"; };
-		38F9E25D22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PopTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PopTransition.swift; sourceTree = "<group>"; };
-		38F9E25E22B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Coordinator.swift; sourceTree = "<group>"; };
 		38F9E26822B3CDFB009B6715 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		38F9E26922B3CDFB009B6715 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		38F9E26A22B3CDFB009B6715 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -357,7 +358,6 @@
 		38F9E29922B3D627009B6715 /* UIViewControllerReactive+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewControllerReactive+Extensions.swift"; sourceTree = "<group>"; };
 		38F9E29B22B3D676009B6715 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		38F9E29F22B3D715009B6715 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		38F9E2A422B3DD75009B6715 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		38F9E2A722B3DE16009B6715 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		38F9E2A822B3DE16009B6715 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		38F9E2AD22B3DEC4009B6715 /* HomeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTheme.swift; sourceTree = "<group>"; };
@@ -949,9 +949,9 @@
 		38F9E25522B3CCF2009B6715 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				38D1CA6A22BFC6B200F42217 /* Coordinator.swift */,
+				38D1CA6B22BFC6B200F42217 /* Transition.swift */,
 				38F9E25722B3CCF2009B6715 /* Transitions */,
-				38F9E25E22B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Coordinator.swift */,
-				38F9E25622B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transition.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -959,12 +959,12 @@
 		38F9E25722B3CCF2009B6715 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
-				38F9E25A22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/DismissTransition.swift */,
-				38F9E25D22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PopTransition.swift */,
-				38F9E25822B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PresentTransition.swift */,
-				38F9E25C22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PushTransition.swift */,
-				38F9E25B22B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPresentTransition.swift */,
-				38F9E25922B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPushTransition.swift */,
+				38D1CA5F22BFC6A900F42217 /* DismissTransition.swift */,
+				38D1CA6122BFC6A900F42217 /* PopTransition.swift */,
+				38D1CA5E22BFC6A900F42217 /* PresentTransition.swift */,
+				38D1CA6322BFC6A900F42217 /* PushTransition.swift */,
+				38D1CA6022BFC6A900F42217 /* TabBarPresentTransition.swift */,
+				38D1CA6222BFC6A900F42217 /* TabBarPushTransition.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -1045,7 +1045,7 @@
 		38F9E2A322B3DD60009B6715 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				38F9E2A422B3DD75009B6715 /* Icons.xcassets */,
+				38D1CA7022BFC74700F42217 /* Icons.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1517,7 +1517,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38F9E2A522B3DD75009B6715 /* Icons.xcassets in Resources */,
+				38D1CA7122BFC74700F42217 /* Icons.xcassets in Resources */,
 				38D1CA1A22BDCBA800F42217 /* localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1948,47 +1948,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D1CA2D22BDDC7F00F42217 /* TableViewCell.swift in Sources */,
+				38D1CA6422BFC6A900F42217 /* PresentTransition.swift in Sources */,
+				38D1CA6C22BFC6B200F42217 /* Coordinator.swift in Sources */,
 				38F9E24622B3BF1A009B6715 /* UINavigationBar+Extensions.swift in Sources */,
 				38D1CA3A22BE591D00F42217 /* GradientView.swift in Sources */,
-				38F9E26522B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PopTransition.swift in Sources */,
 				38D1CA2F22BDDDEF00F42217 /* RxTableViewCellBuilder.swift in Sources */,
+				38D1CA6522BFC6A900F42217 /* DismissTransition.swift in Sources */,
 				384E9A1C22BBBFA80054FD22 /* CollectionView.swift in Sources */,
 				38F9E23D22B3BEB8009B6715 /* Theme.swift in Sources */,
 				384E9A1A22BBBCD80054FD22 /* ContainerCellConvertible.swift in Sources */,
 				38F9E24122B3BF06009B6715 /* JSONDecoder+Extensions.swift in Sources */,
 				38F9E2C822B48288009B6715 /* Reusable.swift in Sources */,
-				38F9E26322B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPresentTransition.swift in Sources */,
 				38F9E23C22B3BEB8009B6715 /* Bindable.swift in Sources */,
 				384E9A2E22BC81260054FD22 /* Utility-Bridging-Header.h in Sources */,
 				38F9E2BB22B3FA64009B6715 /* Stateable.swift in Sources */,
 				38F9E2BD22B3FDE1009B6715 /* ViewController.swift in Sources */,
 				384E9A1222BBB21F0054FD22 /* CollectionViewCell.swift in Sources */,
+				38D1CA6822BFC6A900F42217 /* TabBarPushTransition.swift in Sources */,
 				38D1CA1922BDA2C600F42217 /* NavigationController.swift in Sources */,
 				38F9E2BF22B404F6009B6715 /* ViewModable.swift in Sources */,
 				38F9E23E22B3BEB8009B6715 /* ViewModel.swift in Sources */,
-				38F9E25F22B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transition.swift in Sources */,
-				38F9E26622B3CCF2009B6715 /* ../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Coordinator.swift in Sources */,
-				38F9E26022B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PresentTransition.swift in Sources */,
 				38F9E2B322B3F7EC009B6715 /* UIViewController+Extensions.swift in Sources */,
 				38D1CA3622BE4AEF00F42217 /* CAGradientLayer+Extensions.swift in Sources */,
+				38D1CA6922BFC6A900F42217 /* PushTransition.swift in Sources */,
 				38F9E24322B3BF0E009B6715 /* Observable+Extensions.swift in Sources */,
 				384E9A2422BBE70A0054FD22 /* RxCollectionCellBuilder.swift in Sources */,
 				38F9E25422B3CACA009B6715 /* SharedSequenceConvertibleType+Extensions.swift in Sources */,
+				38D1CA6722BFC6A900F42217 /* PopTransition.swift in Sources */,
 				38F9E2CA22B48288009B6715 /* UICollectionViewCell+Extensions.swift in Sources */,
 				384E9A1622BBB5ED0054FD22 /* GenericView.swift in Sources */,
 				38F9E29A22B3D627009B6715 /* UIViewControllerReactive+Extensions.swift in Sources */,
-				38F9E26422B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/PushTransition.swift in Sources */,
 				38D1CA3122BDDF0700F42217 /* TableView.swift in Sources */,
 				38F9E26C22B3CDFB009B6715 /* Typealias.swift in Sources */,
 				38D1CA2B22BDDC2900F42217 /* UITableViewCell+Extensions.swift in Sources */,
-				38F9E26222B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/DismissTransition.swift in Sources */,
 				38F9E2C922B48288009B6715 /* UICollectionView+Extensions.swift in Sources */,
 				38F9E23B22B3BEB8009B6715 /* ConfigurableView.swift in Sources */,
-				38F9E26122B3CCF2009B6715 /* ../../../../../../../Downloads/Coordinator/Coordinator/Core/Base/Coordinator/Transitions/TabBarPushTransition.swift in Sources */,
 				384E9A2022BBBFDE0054FD22 /* UIRefreshControl+Extensions.swift in Sources */,
 				38D1CA2922BDDC1D00F42217 /* UITableView+Extensions.swift in Sources */,
+				38D1CA6D22BFC6B200F42217 /* Transition.swift in Sources */,
 				38F9E24B22B3C031009B6715 /* UIColor+Extensions.swift in Sources */,
 				38F9E24722B3BF1A009B6715 /* UINavigationBarController+Extensions.swift in Sources */,
+				38D1CA6622BFC6A900F42217 /* TabBarPresentTransition.swift in Sources */,
 				384E9A1E22BBBFC60054FD22 /* RefreshControl.swift in Sources */,
 				38D1CA4822BFA2EB00F42217 /* CollectionViewReactive+Extensions.swift in Sources */,
 			);
