@@ -14,7 +14,7 @@ The app is fed with content from The Movie Database (TMDb).
 - Minimum version: iOS 11.0,
 - Supported orientations: portrait, landscape,
 - Supported devices: Iphone,
-- XCode version: 10 or superior.
+- XCode version: 10 or higher.
 
 # Dependencies
 
@@ -47,7 +47,7 @@ In order to make the implementation faster, i decided to use Rx libraries for bi
 - `Swiftlint` is used to make rules, in order to make the code in a good standard, forcing to fix variable names, method names, parameter count and so on.
 - `SwiftGen` generate code for localizable strings and images used on the project.
 - `SnapKit` wraps layout declaration and make the code more organizable.
-- `Kingfisher` deals with image caching, it's really helps when downloading and showing images.
+- `Kingfisher` deals with image caching, it really helps when downloading and showing images.
 
 # Installation
 
