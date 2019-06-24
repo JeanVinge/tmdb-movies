@@ -20,24 +20,26 @@ The app is fed with content from The Movie Database (TMDb).
 
 ## Objective-C
 
-UIScrollView-InfiniteScroll
+ - UIScrollView-InfiniteScroll
 
 ## Swift
 
-RxSwift
-RxCocoa
-RxDataSources
-NSObject+Rx
-RxBlocking
-RxTest
-SwiftLint
-SwiftGen
-SnapKit
-Kingfisher
+- RxSwift
+- RxCocoa
+- RxDataSources
+- NSObject+Rx
+- RxBlocking
+- RxTest
+- SwiftLint
+- SwiftGen
+- SnapKit
+- Kingfisher
 
 # Why
 
 This topic explain why i choose to use these libraries.
+
+- `UIScrollView-InfiniteScroll` help with pagination in `UIScrollViews`
 
 - Rx Libraries: 
 In order to make the implementation faster, i decided to use Rx libraries for bindind and taking advantages of RxSwift features, like `Observable`, `Single`, so it's essencial to struct the ViewModel's project, just to a brief explain, `RxSwift` and `RxCocoa` are the main libraries for Reactive Programming, `RxDataSources` helps to deal with `UICollectionViews` and `UITableViews`, `NSObject+Rx` create helper methods for dispose objects and `RxBlocking`/`RxTest` are used to test the reactive code, transforming from observable to values.
