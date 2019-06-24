@@ -14,6 +14,7 @@ The app is fed with content from The Movie Database (TMDb).
 - Minimum version: iOS 11.0,
 - Supported orientations: portrait and landscape,
 - Supported devices: Iphone,
+- Swift 5,
 - XCode version: 10 or higher.
 
 # Dependencies
@@ -56,7 +57,21 @@ The script will execute and install all project dependencies, and you should be 
 
 # Structure
 
-The architecture was built using the concepts of Clean Architecture, MVVM, RxSwift, ViewCode and Coordinators.
+### Project setup
+
+The project is is divided in some modules, the reason for that is to make the project more modular and scalable, i decided to organize in four frameworks, extracting utilities, network layer, localizable strings and so on from the main module, by doing that the app module could be more flexible to add more frameworks to it and with a plus of my code becoming more clean.
+
+How the app is devided:
+
+- `Domain` - is a module that implements model contracts, every model logic is there.
+- `Networking` - A network layer, all the code of making a request handle erros, is in this framework, isolating those logic from the tmdb-movies module.
+- `Resources` - Imports all my localizable strings with the help of SwiftGen library and images.
+- `Utility` - Keep all extensions, helper classes, as the name say all the utility for the app
+- `tmdb-movies` - Is the main module, where all connections happen and execute the concrete app.
+
+## Architecture
+
+The architecture was built using the concepts of Clean Architecture, `MVVM`, `RxSwift`, `ViewCode` and `Coordinators`.
 
 Clean Architecture: helps to separate business logic, network layer, making them as an onion, having layer by layer.
 
@@ -69,7 +84,4 @@ ViewCode: the SnapKit library is a common library for view code, I like the bene
 Coordinators: Coordinators helps to separate the navigation flow from the view controllers, I used a basic coordinator made by me, and it's really good to keep the responsibility away from the controller.
 
 I also made Unit tests and UITest, using XCTest, and RxBlocking libraries, with the ViewModel from the MVVM I can test all the business rules inside the viewModel and make the controller the dumb as possible just being the middle man between the view and the viewModel.
-
-# Project Organization
-
 
