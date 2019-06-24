@@ -63,11 +63,11 @@ The project is is divided in some modules, the reason for that is to make the pr
 
 How the app is devided:
 
-`Domain` - is a module that implements model contracts, every model logic is there.
-`Networking` - A network layer, all the code of making a request handle erros, is in this framework, isolating those logic from the tmdb-movies module.
-`Resources` - Imports all my localizable strings with the help of SwiftGen library and images.
-`Utility` - Keep all extensions, helper classes, as the name say all the utility for the app
-`tmdb-movies` - Is the main module, where all connections happen and execute the concrete app.
+- `Domain` - is a module that implements model contracts, every model logic is there.
+- `Networking` - A network layer, all the code of making a request handle erros, is in this framework, isolating those logic from the tmdb-movies module.
+- `Resources` - Imports all my localizable strings with the help of SwiftGen library and images.
+- `Utility` - Keep all extensions, helper classes, as the name say all the utility for the app
+- `tmdb-movies` - Is the main module, where all connections happen and execute the concrete app.
 
 ## Architecture
 
