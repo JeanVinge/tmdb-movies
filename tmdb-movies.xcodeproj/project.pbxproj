@@ -506,6 +506,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3831346E22C185B800454D57 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				38F9E17B22B07695009B6715 /* Info.plist */,
+				38D1CA7622C00B6B00F42217 /* tmdb-moviesTests-Bridging-Header.h */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		384E99F422B915E40054FD22 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,9 +807,8 @@
 		38F9E17822B07695009B6715 /* tmdb-moviesTests */ = {
 			isa = PBXGroup;
 			children = (
-				38F9E17B22B07695009B6715 /* Info.plist */,
+				3831346E22C185B800454D57 /* Resources */,
 				38D1CA7722C00B6C00F42217 /* Test.swift */,
-				38D1CA7622C00B6B00F42217 /* tmdb-moviesTests-Bridging-Header.h */,
 			);
 			path = "tmdb-moviesTests";
 			sourceTree = "<group>";
@@ -2381,7 +2389,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "tmdb-moviesTests/Info.plist";
+				INFOPLIST_FILE = "tmdb-moviesTests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2390,7 +2398,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "br.jean.vinge.tmdb-moviesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "tmdb-moviesTests/tmdb-moviesTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "tmdb-moviesTests/Resources/tmdb-moviesTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2408,7 +2416,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "tmdb-moviesTests/Info.plist";
+				INFOPLIST_FILE = "tmdb-moviesTests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2417,7 +2425,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "br.jean.vinge.tmdb-moviesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "tmdb-moviesTests/tmdb-moviesTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "tmdb-moviesTests/Resources/tmdb-moviesTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tmdb-movies.app/tmdb-movies";
