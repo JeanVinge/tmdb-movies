@@ -6,6 +6,6 @@ branches:
 before_install:
 - gem install bundler:2.0.1
 - bundle install
-- bundle exec pod install
+- bundle exec pod install --no-repo-update
 script:
   - bundle exec fastlane test
