@@ -12,7 +12,7 @@ The app is fed with content from The Movie Database (TMDb).
 # Capabilities
 
 - Minimum version: iOS 11.0,
-- Supported orientations: portrait,
+- Supported orientations: portrait, landscape,
 - Supported devices: Iphone,
 - XCode version: 10 or superior.
 
