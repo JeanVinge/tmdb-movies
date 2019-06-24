@@ -47,7 +47,6 @@ final class MovieCell: GenericView, ContainerCellConvertible {
     })
 
     lazy var releaseDataView = ReleaseDateView()
-
     lazy var genreView = GenreView()
 
     // MARK: Init
@@ -64,7 +63,6 @@ final class MovieCell: GenericView, ContainerCellConvertible {
         addSubview(genreView)
         addSubview(titleLabel)
         addSubview(releaseDataView)
-        addSubview(genreView)
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
     }

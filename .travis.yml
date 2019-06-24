@@ -12,6 +12,6 @@ before_install:
 - gem install bundler:2.0.1
 - bundle install
 - bundle exec pod keys set "TMDbMoviesAPIKey" $TMDBMOVIESAPIKEY
-- bundle exec pod install --no-repo-update
+- bundle exec pod install --repo-update
 script:
 - bundle exec fastlane test
