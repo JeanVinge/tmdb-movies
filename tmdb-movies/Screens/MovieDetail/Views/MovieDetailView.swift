@@ -58,6 +58,21 @@ final class MovieDetailView: View<MovieDetailViewModel> {
     }
 
     override func initConstraints() {
+        buildLayout(UIDevice.current.orientation.isLandscape)
+    }
+
+    func clearConstraint() {
+        imageView.snp.removeConstraints()
+        gradientView.snp.removeConstraints()
+        titleLabel.snp.removeConstraints()
+        titleLabel.snp.removeConstraints()
+        componentView.snp.removeConstraints()
+        genreView.snp.removeConstraints()
+        releaseDateView.snp.removeConstraints()
+        textView.snp.removeConstraints()
+    }
+
+    func buildLayout(_ isLandscape: Bool) {
         imageView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
             make.height.equalTo(250)
@@ -67,7 +82,7 @@ final class MovieDetailView: View<MovieDetailViewModel> {
             make.height.equalTo(imageView.snp.height)
         }
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(60)
+            make.top.equalToSuperview().inset(isLandscape ? 30 : 80)
             make.left.equalTo(safeAreaLayoutGuide.snp.left).inset(20)
             make.right.equalTo(safeAreaLayoutGuide.snp.right).inset(20)
         }
@@ -87,10 +102,22 @@ final class MovieDetailView: View<MovieDetailViewModel> {
             make.bottom.equalToSuperview()
         }
         textView.snp.makeConstraints { (make) in
-            make.top.equalTo(componentView.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(30)
+            if isLandscape {
+                make.top.equalTo(titleLabel.snp.bottom).offset(40)
+                make.left.equalTo(safeAreaLayoutGuide.snp.left).inset(10)
+                make.right.lessThanOrEqualTo(componentView.snp.left).inset(10)
+            } else {
+                make.top.equalTo(componentView.snp.bottom).offset(10)
+                make.left.right.equalToSuperview().inset(30)
+            }
             make.bottom.greaterThanOrEqualTo(safeAreaLayoutGuide.snp.bottomMargin).inset(20)
         }
+    }
+
+    override func updateConstraints() {
+        super.updateConstraints()
+        clearConstraint()
+        initConstraints()
     }
 
     override func bindViewModel() {
