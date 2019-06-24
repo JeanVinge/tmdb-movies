@@ -69,3 +69,7 @@ ViewCode: the SnapKit library is a common library for view code, I like the bene
 Coordinators: Coordinators helps to separate the navigation flow from the view controllers, I used a basic coordinator made by me, and it's really good to keep the responsibility away from the controller.
 
 I also made Unit tests and UITest, using XCTest, and RxBlocking libraries, with the ViewModel from the MVVM I can test all the business rules inside the viewModel and make the controller the dumb as possible just being the middle man between the view and the viewModel.
+
+# Project Organization
+
+
