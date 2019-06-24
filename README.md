@@ -53,3 +53,19 @@ In order to make the implementation faster, i decided to use Rx libraries for bi
 
 Run the `install.sh` placed at the root folder of the project.
 The script will execute and install all project dependencies, and you should be ready to run the project.
+
+# Structure
+
+The architecture was built using the concepts of Clean Architecture, MVVM, RxSwift, ViewCode and Coordinators.
+
+Clean Architecture: helps to separate business logic, network layer, making them as an onion, having layer by layer.
+
+MVVM: the ViewModel layer to isolate the business logic between the view and the controller, not so powerful as the complete clean architecture but is simple, solve the problem and is really a good solution to test.
+
+RxSwift: make the binds on UIButtons, UILabels, UITextFields, delegates and eg. the library really is a great effort to simplify code, avoiding to use selectors, and KVO methods, and the RxBlocking classes, helps to make the observables to a single value to test.
+
+ViewCode: the SnapKit library is a common library for view code, I like the benefits of coding a view, you avoid the weight of opening a .storyboard or a .xib. it's also a gaining on build time.
+
+Coordinators: Coordinators helps to separate the navigation flow from the view controllers, I used a basic coordinator made by me, and it's really good to keep the responsibility away from the controller.
+
+I also made Unit tests and UITest, using XCTest, and RxBlocking libraries, with the ViewModel from the MVVM I can test all the business rules inside the viewModel and make the controller the dumb as possible just being the middle man between the view and the viewModel.
