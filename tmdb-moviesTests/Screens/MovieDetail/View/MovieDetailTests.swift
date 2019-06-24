@@ -7,6 +7,7 @@
 //
 
 @testable import tmdb_movies
+
 import XCTest
 
 class FindUserViewTests: XCTestCase {
@@ -23,4 +24,3 @@ class FindUserViewTests: XCTestCase {
         XCTAssertTrue(view.textView.isDescendant(of: view))
     }
 }
-
