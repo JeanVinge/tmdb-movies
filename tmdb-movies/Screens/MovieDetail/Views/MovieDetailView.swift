@@ -68,11 +68,12 @@ final class MovieDetailView: View<MovieDetailViewModel> {
         }
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(60)
-            make.left.right.equalToSuperview().inset(20)
+            make.left.equalTo(safeAreaLayoutGuide.snp.left).inset(20)
+            make.right.equalTo(safeAreaLayoutGuide.snp.right).inset(20)
         }
         componentView.snp.makeConstraints { (make) in
-            make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.right.equalToSuperview()
+            make.top.lessThanOrEqualTo(imageView.snp.bottom).inset(30)
+            make.right.equalTo(safeAreaLayoutGuide.snp.right)
             make.left.greaterThanOrEqualToSuperview()
         }
         genreView.snp.makeConstraints { (make) in
@@ -88,7 +89,7 @@ final class MovieDetailView: View<MovieDetailViewModel> {
         textView.snp.makeConstraints { (make) in
             make.top.equalTo(componentView.snp.bottom).offset(10)
             make.left.right.equalToSuperview().inset(30)
-            make.bottom.greaterThanOrEqualToSuperview().inset(20)
+            make.bottom.greaterThanOrEqualTo(safeAreaLayoutGuide.snp.bottomMargin).inset(20)
         }
     }
 

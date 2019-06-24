@@ -11,15 +11,29 @@ import Domain
 import Kingfisher
 import Resources
 
-let width = UIScreen.main.bounds.width
-let cardWidth = (width / 2) - width.truncatingRemainder(dividingBy: 2)
+struct MovieSize {
+    private static func cardHeight() -> CGFloat {
+        return 350
+    }
+    private static func cardWidth() -> CGFloat {
+        let window = UIApplication.shared.keyWindow
+        let topPadding = window?.safeAreaInsets.left ?? 0
+        let bottomPadding = window?.safeAreaInsets.right ?? 0
+        let width = UIScreen.main.bounds.width - topPadding - bottomPadding
+        let factor: CGFloat = width < 600 ? 2 : 4
+        return (width / factor) - width.truncatingRemainder(dividingBy: factor)
+    }
+    static var cardSize: CGSize {
+        return CGSize(width: cardWidth(), height: cardHeight())
+    }
+}
 
 final class MovieCell: GenericView, ContainerCellConvertible {
 
     // MARK: Var
 
     typealias Configuration = Movie
-    var resize: ContentResize = .size(CGSize(width: cardWidth, height: 350))
+    var resize: ContentResize = .size(MovieSize.cardSize)
 
     lazy var imageView = UIImageView(ViewStyle<UIImageView> {
         $0.contentMode = .scaleAspectFill
@@ -58,7 +72,7 @@ final class MovieCell: GenericView, ContainerCellConvertible {
     override func initConstraints() {
         imageView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(270)
+            make.height.equalTo(MovieSize.cardSize.height * 0.76)
         }
         genreView.snp.makeConstraints { (make) in
             make.top.equalTo(imageView.snp.top)
@@ -70,6 +84,7 @@ final class MovieCell: GenericView, ContainerCellConvertible {
             make.left.right.equalToSuperview().inset(10)
         }
         releaseDataView.snp.makeConstraints { (make) in
+            make.top.greaterThanOrEqualTo(titleLabel.snp.bottom)
             make.right.equalToSuperview().inset(5)
             make.bottom.equalToSuperview()
         }

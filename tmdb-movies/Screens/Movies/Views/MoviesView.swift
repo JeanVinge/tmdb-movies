@@ -42,8 +42,10 @@ class MoviesView: View<MoviesViewModel> {
     }
     override func initConstraints() {
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(60)
-            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.topMargin).inset(60)
+            make.left.equalTo(safeAreaLayoutGuide.snp.left)
+            make.right.equalTo(safeAreaLayoutGuide.snp.right)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottomMargin)
         }
         searchBar.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
@@ -140,5 +142,10 @@ class MoviesView: View<MoviesViewModel> {
                 .rx
                 .disableRefresh)
             .disposed(by: rx.disposeBag)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }
