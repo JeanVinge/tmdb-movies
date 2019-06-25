@@ -17,7 +17,7 @@ struct MoviesViewModel: ViewModel, Transformable {
     // MARK: Var
 
     var router: Router?
-    var useCases = MovieUseCases()
+    var useCases: Domain.MovieUseCases
 
     struct Input {
         var trigger: Driver<Void>
@@ -35,6 +35,10 @@ struct MoviesViewModel: ViewModel, Transformable {
     }
 
     // MARK: Init
+
+    init(_ useCases: Domain.MovieUseCases = MovieUseCases()) {
+        self.useCases = useCases
+    }
 
     func transform(input: Input) -> Output {
 
