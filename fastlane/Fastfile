@@ -7,5 +7,5 @@ end
 
 desc "Gathered code coverage using slather"
 lane :coverage do
-  bundle exec slather
+  # bundle exec slather
 end
