@@ -1,4 +1,4 @@
-# TMDb Movies
+# TMDb Movies  ![alt image](https://travis-ci.org/JeanVinge/tmdb-movies.svg?branch=development)
 
 An app that show the list of upcoming movies. 
 The app is fed with content from The Movie Database (TMDb).
