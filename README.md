@@ -5,50 +5,50 @@ The app is fed with content from The Movie Database (TMDb).
 
 # Features
 
-- Scroll through the list of upcoming movies,
-- Select a specific movie to see details,
-- Search for movies by entering a partial or full movie name.
+- [x] Scroll through the list of upcoming movies,
+- [x] Select a specific movie to see details,
+- [x] Search for movies by entering a partial or full movie name.
 
 # Capabilities
 
-- Minimum version: iOS 11.0,
-- Supported orientations: portrait and landscape,
-- Supported devices: Iphone,
-- Swift 5,
-- XCode version: 10 or higher.
+- [x] Minimum version: iOS 11.0,
+- [x] Supported orientations: portrait and landscape,
+- [x] Supported devices: iPhone,
+- [x] Swift 5,
+- [x] XCode version: 10 or higher.
 
 # Dependencies
 
 ## Objective-C
 
- - UIScrollView-InfiniteScroll
+ - [UIScrollView-InfiniteScroll](https://github.com/pronebird/UIScrollView-InfiniteScroll)
 
 ## Swift
 
-- RxSwift
-- RxCocoa
-- RxDataSources
-- NSObject+Rx
-- RxBlocking
-- RxTest
-- SwiftLint
-- SwiftGen
-- SnapKit
-- Kingfisher
+- [RxSwift](https://github.com/ReactiveX/RxSwift)
+- [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa)
+- [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources)
+- [NSObject+Rx](https://github.com/RxSwiftCommunity/NSObject-Rx)
+- [RxBlocking](https://github.com/ReactiveX/RxSwift/tree/master/RxBlocking)
+- [RxTest](https://github.com/ReactiveX/RxSwift/tree/master/RxTest)
+- [SwiftLint](https://github.com/realm/SwiftLint)
+- [SwiftGen](https://github.com/SwiftGen/SwiftGen)
+- [SnapKit](https://github.com/SnapKit/SnapKit)
+- [Kingfisher](https://github.com/onevcat/Kingfisher)
 
 # Why
 
 This topic explain why i choose to use these libraries.
 
-- `UIScrollView-InfiniteScroll` help with pagination in `UIScrollViews`
+- [UIScrollView-InfiniteScroll](https://github.com/pronebird/UIScrollView-InfiniteScroll) help with pagination in `UIScrollViews`
 
 - Rx Libraries: 
-In order to make the implementation faster, i decided to use Rx libraries for bindind and taking advantages of RxSwift features, like `Observable`, `Single`, so it's essencial to struct the ViewModel's project, just to a brief explain, `RxSwift` and `RxCocoa` are the main libraries for Reactive Programming, `RxDataSources` helps to deal with `UICollectionViews` and `UITableViews`, `NSObject+Rx` create helper methods for dispose objects and `RxBlocking`/`RxTest` are used to test the reactive code, transforming from observable to values.
+In order to make the implementation faster, i decided to use Rx libraries for bindind and taking advantages of [RxSwift](https://github.com/ReactiveX/RxSwift) features, like `Observable`, `Single`, so it's essencial to struct the ViewModel's project, just to a brief explain, [RxSwift](https://github.com/ReactiveX/RxSwift) and [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa) are the main libraries for Reactive Programming, [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources) helps to deal with `UICollectionViews` and `UITableViews`, [NSObject+Rx](https://github.com/RxSwiftCommunity/NSObject-Rx) create helper methods for dispose objects and [RxBlocking](https://github.com/ReactiveX/RxSwift/tree/master/RxBlocking)/[RxTest](https://github.com/ReactiveX/RxSwift/tree/master/RxTest) are used to test the reactive code, transforming from observable to values.
 
-- `Swiftlint` is used to make rules, in order to make the code in a good standard, forcing to fix variable names, method names, parameter count and so on.
-- `SwiftGen` generate code for localizable strings and images used on the project.
-- `SnapKit` wraps layout declaration and make the code more organizable.
-- `Kingfisher` deals with image caching, it really helps when downloading and showing images.
+- [SwiftLint](https://github.com/realm/SwiftLint) is used to make rules, in order to make the code in a good standard, forcing to fix variable names, method names, parameter count and so on.
+- [SwiftGen](https://github.com/SwiftGen/SwiftGen) generate code for localizable strings and images used on the project.
+- [SnapKit](https://github.com/SnapKit/SnapKit) wraps layout declaration and make the code more organizable.
+- [Kingfisher](https://github.com/onevcat/Kingfisher) deals with image caching, it really helps when downloading and showing images.
 
 # Installation
 
