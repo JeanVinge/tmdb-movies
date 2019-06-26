@@ -6,8 +6,6 @@ env:
 branches:
   only:
   - development
-cache:
-  - bundler
 before_install:
 - gem install bundler:2.0.1
 - bundle install
