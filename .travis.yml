@@ -8,8 +8,10 @@ branches:
   - development
 before_install:
 - gem install bundler:2.0.1
+install:
 - bundle install
 - bundle exec pod install --repo-update
+before_script:
+  - bundle exec pod keys set "TMDbMoviesAPIKey" $TMDBMOVIESAPIKEY
 script:
-- bundle exec pod keys set "TMDbMoviesAPIKey" $TMDBMOVIESAPIKEY
 - bundle exec fastlane test
