@@ -9,14 +9,21 @@
 import RxDataSources
 import NSObject_Rx
 
+public protocol CollectionViewSize: class {
+    func customSize(_ collectionView: UICollectionView,
+                    layout collectionViewLayout: UICollectionViewLayout,
+                    sizeForItemAt indexPath: IndexPath) -> CGSize
+}
+
 public class RxCollectionCellBuilder<T: AnimatableSectionModelType, C: ContentView>:
 NSObject, UICollectionViewDelegateFlowLayout {
 
     public var dataSource: RxCollectionViewSectionedAnimatedDataSource<T>!
-    var cellSize: CGSize
+    weak var delegate: CollectionViewSize?
 
-    public init(_ collectionView: UICollectionView, cellSize: CGSize) {
-        self.cellSize = cellSize
+    public init(_ collectionView: UICollectionView,
+                delegate: CollectionViewSize? = nil) {
+        self.delegate = delegate
         super.init()
         let animation = AnimationConfiguration(insertAnimation: .fade,
                                                reloadAnimation: .fade,
@@ -35,11 +42,9 @@ NSObject, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellSize
-    }
-
-    func calculateSize(_ cell: UICollectionViewCell, at indexPath: IndexPath) -> CGSize {
-        return cellSize
+        return delegate?.customSize(collectionView,
+                                   layout: collectionViewLayout,
+                                   sizeForItemAt: indexPath) ?? .zero
     }
 
     public func collectionView(_ collectionView: UICollectionView,

@@ -13,7 +13,7 @@ import RxDataSources
 import Domain
 import Resources
 
-class MoviesView: View<MoviesViewModel> {
+class MoviesView: View<MoviesViewModel>, CollectionViewSize {
 
     // MARK: Var
 
@@ -28,7 +28,7 @@ class MoviesView: View<MoviesViewModel> {
     })
     lazy var collectionView = CollectionView(RefreshControl())
     lazy var builder: RxCollectionCellBuilder<Movies, MovieCell> = {
-        return RxCollectionCellBuilder<Movies, MovieCell>(collectionView, cellSize: MovieSize.cardSize)
+        return RxCollectionCellBuilder<Movies, MovieCell>(collectionView, delegate: self)
     }()
 
     // MARK: Init
@@ -147,5 +147,13 @@ class MoviesView: View<MoviesViewModel> {
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
+    }
+
+    // MARK: CollectionViewSize
+
+    func customSize(_ collectionView: UICollectionView,
+                    layout collectionViewLayout: UICollectionViewLayout,
+                    sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return MovieSize.cardSize
     }
 }
