@@ -9,11 +9,14 @@
 import UIKit
 import RxSwift
 
+public typealias ConcreteView = UIView & BindableView
+
 open class ViewController: UIViewController {
 
     // MARK: Var
 
-    public var theme: Theme
+    private var baseView: ConcreteView
+    private var theme: Theme
     private lazy var state: StateableViewController = {
         return StateableViewController(self)
     }()
@@ -24,19 +27,21 @@ open class ViewController: UIViewController {
 
     // MARK: Init
 
-    public init<View: UIView & BindableView>(_ view: View,
-                                             router: Router? = nil,
-                                             theme: Theme) {
+    public init<View: ConcreteView>(_ view: View,
+                                    router: Router? = nil,
+                                    theme: Theme) {
         self.theme = theme
+        self.baseView = view
         super.init(nibName: nil,
                    bundle: nil)
-        self.view = view
         view.setup(StateableViewController(self),
                    router: router == nil ? ScreenRouter(self) : router)
         view.bindViewModel()
-        view.layoutIfNeeded()
-        viewDidLoad()
-        setNeedsStatusBarAppearanceUpdate()
+    }
+
+    open override func loadView() {
+        super.loadView()
+        self.view = baseView
     }
 
     open override func viewWillAppear(_ animated: Bool) {
@@ -46,11 +51,5 @@ open class ViewController: UIViewController {
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init coder not implemented")
-    }
-
-    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        view.setNeedsUpdateConstraints()
-        view.frame = UIScreen.main.bounds
     }
 }
