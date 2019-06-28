@@ -54,7 +54,6 @@
 		38B22C2722B7B3A100A65D53 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B22C2622B7B3A100A65D53 /* URLConvertible.swift */; };
 		38B22C2922B7B3F700A65D53 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B22C2822B7B3F700A65D53 /* APIError.swift */; };
 		38D1CA1722BD9D6B00F42217 /* MoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA1622BD9D6B00F42217 /* MoviesRouter.swift */; };
-		38D1CA1922BDA2C600F42217 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA1822BDA2C600F42217 /* NavigationController.swift */; };
 		38D1CA1A22BDCBA800F42217 /* localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38D1CA1C22BDCBA800F42217 /* localizable.strings */; };
 		38D1CA2022BDD1C200F42217 /* ReleaseDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA1F22BDD1C200F42217 /* ReleaseDateView.swift */; };
 		38D1CA2922BDDC1D00F42217 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1CA2822BDDC1D00F42217 /* UITableView+Extensions.swift */; };
@@ -305,7 +304,6 @@
 		38B22C2622B7B3A100A65D53 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 		38B22C2822B7B3F700A65D53 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		38D1CA1622BD9D6B00F42217 /* MoviesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRouter.swift; sourceTree = "<group>"; };
-		38D1CA1822BDA2C600F42217 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		38D1CA1B22BDCBA800F42217 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localizable.strings; sourceTree = "<group>"; };
 		38D1CA1F22BDD1C200F42217 /* ReleaseDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDateView.swift; sourceTree = "<group>"; };
 		38D1CA2822BDDC1D00F42217 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -1040,7 +1038,6 @@
 				384E9A1122BBB21F0054FD22 /* CollectionViewCell.swift */,
 				384E9A1522BBB5ED0054FD22 /* GenericView.swift */,
 				38D1CA3922BE591D00F42217 /* GradientView.swift */,
-				38D1CA1822BDA2C600F42217 /* NavigationController.swift */,
 				384E9A1D22BBBFC60054FD22 /* RefreshControl.swift */,
 				38D1CA3022BDDF0700F42217 /* TableView.swift */,
 				38D1CA2C22BDDC7F00F42217 /* TableViewCell.swift */,
@@ -2119,7 +2116,6 @@
 				38F9E2BD22B3FDE1009B6715 /* ViewController.swift in Sources */,
 				384E9A1222BBB21F0054FD22 /* CollectionViewCell.swift in Sources */,
 				38D1CA6822BFC6A900F42217 /* TabBarPushTransition.swift in Sources */,
-				38D1CA1922BDA2C600F42217 /* NavigationController.swift in Sources */,
 				38F9E2BF22B404F6009B6715 /* ViewModable.swift in Sources */,
 				38F9E23E22B3BEB8009B6715 /* ViewModel.swift in Sources */,
 				38F9E2B322B3F7EC009B6715 /* UIViewController+Extensions.swift in Sources */,

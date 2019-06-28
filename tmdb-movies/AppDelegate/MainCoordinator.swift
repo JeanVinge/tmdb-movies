@@ -18,6 +18,6 @@ struct MainCoordinator: Coordinator {
         let vc = ViewController(MoviesView(MoviesViewModel()), theme: HomeTheme())
         vc.title = L10n.General.upcomingMovies
         self.rootViewController(in: window, with:
-            NavigationController(vc))
+            UINavigationController(rootViewController: vc))
     }
 }
