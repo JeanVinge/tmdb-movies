@@ -28,7 +28,7 @@ class MoviesView: View<MoviesViewModel> {
     })
     lazy var collectionView = CollectionView(RefreshControl())
     lazy var builder: RxCollectionCellBuilder<Movies, MovieCell> = {
-        return RxCollectionCellBuilder<Movies, MovieCell>(collectionView)
+        return RxCollectionCellBuilder<Movies, MovieCell>(collectionView, cellSize: MovieSize.cardSize)
     }()
 
     // MARK: Init

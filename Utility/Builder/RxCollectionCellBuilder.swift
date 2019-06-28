@@ -9,25 +9,14 @@
 import RxDataSources
 import NSObject_Rx
 
-struct CellSize {
-    var size: CGSize?
-    var cell: UICollectionViewCell
-    var indexPath: IndexPath
-
-    init(_ cell: UICollectionViewCell,
-         indexPath: IndexPath) {
-        self.cell = cell
-        self.indexPath = indexPath
-    }
-}
-
 public class RxCollectionCellBuilder<T: AnimatableSectionModelType, C: ContentView>:
 NSObject, UICollectionViewDelegateFlowLayout {
 
     public var dataSource: RxCollectionViewSectionedAnimatedDataSource<T>!
-    var cellSize: [CellSize] = []
+    var cellSize: CGSize
 
-    public init(_ collectionView: UICollectionView) {
+    public init(_ collectionView: UICollectionView, cellSize: CGSize) {
+        self.cellSize = cellSize
         super.init()
         let animation = AnimationConfiguration(insertAnimation: .fade,
                                                reloadAnimation: .fade,
@@ -41,28 +30,16 @@ NSObject, UICollectionViewDelegateFlowLayout {
         collectionView.rx.setDelegate(self).disposed(by: rx.disposeBag)
     }
 
-    func populate(indexPath: IndexPath, cell: UICollectionViewCell) {
-        if self.cellSize.indices.contains(indexPath.row) {
-            cellSize[indexPath.row] = CellSize(cell, indexPath: indexPath)
-        } else {
-            cellSize.append(CellSize(cell, indexPath: indexPath))
-        }
-    }
-
     // MARK: UICollectionViewDelegateFlowLayout
 
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let item = dataSource.sectionModels[indexPath.section].items[indexPath.row]
-        let cell = collectionView.dequeue(C.self, at: indexPath, with: item)
-        self.populate(indexPath: indexPath,
-                      cell: cell)
-        return calculateSize(cell, at: indexPath)
+        return cellSize
     }
 
     func calculateSize(_ cell: UICollectionViewCell, at indexPath: IndexPath) -> CGSize {
-        return cell.size(at: indexPath)
+        return cellSize
     }
 
     public func collectionView(_ collectionView: UICollectionView,
