@@ -1,0 +1,14 @@
+/* 
+  localizable.strings
+  tmdb-movies
+
+  Created by jean.vinge on 14/06/19.
+  Copyright © 2019 Jean Vinge. All rights reserved.
+*/
+
+"general.upcoming-movies" = "Upcoming Movies";
+"general.loading" = "Loading";
+"general.release-date" = "Release date";
+"general.try-again" = "Try again";
+"general.could-not-load-information" = "Sorry we could not load movie list.";
+"general.search" = "Search";

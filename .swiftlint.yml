@@ -1,0 +1,20 @@
+excluded:
+  - Pods
+  - vendor
+
+disabled_rules:
+
+function_body_length:
+  - 50
+
+cyclomatic_complexity:
+  - 10
+
+identifier_name:
+  min_length: 1
+  max_length:
+    warning: 50
+    error: 100
+  excluded:
+    - id
+    - URL

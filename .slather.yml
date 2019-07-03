@@ -1,0 +1,9 @@
+coverage_service: cobertura_xml
+xcodeproj: tmdb-movies.xcodeproj
+workspace: tmdb-movies.xcworkspace
+scheme: TMDb
+input_format: profdata
+source_directory: tmdb-movies/
+output_directory: fastlane/test_output/
+ignore:
+  - Pods/*
